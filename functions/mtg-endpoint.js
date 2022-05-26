@@ -10,7 +10,8 @@ const headers = {
 
 exports.handler = async (event, context) => {
   try {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
+    console.log(event.queryStringParameters); //eslint-disable-line
+    const response = await fetch(`https://api.magicthegathering.io/v1/cards?pageSize=1&random=true&colorIdentity=${event.queryStringParameters.colorIdentity}`);
     const data = await response.json();
     const json = JSON.stringify(data);
     
