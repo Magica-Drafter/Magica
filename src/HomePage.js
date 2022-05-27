@@ -24,25 +24,26 @@ export default function HomePage() {
     setQuery();
   }, [query]);
   //eslint-disable-line
+
   return (
     <div>
-      <button value={query} onClick={async () => setQuery('R')}>
+      <button value={query} onClick={async () => setQuery('|Red|')}>
         Red
       </button>
 
-      <button value={query} onClick={async () => setQuery('G')}>
+      <button value={query} onClick={async () => setQuery('|Green|')}>
         Green
       </button>
 
-      <button value={query} onClick={async () => setQuery('B')}>
+      <button value={query} onClick={async () => setQuery('|Black|')}>
         Black
       </button>
 
-      <button value={query} onClick={async () => setQuery('U')}>
+      <button value={query} onClick={async () => setQuery('|Blue|')}>
         Blue
       </button>
 
-      <button value={query} onClick={async () => setQuery('W')}>
+      <button value={query} onClick={async () => setQuery('|White|')}>
         White
       </button>
 

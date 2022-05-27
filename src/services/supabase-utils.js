@@ -23,10 +23,6 @@ export async function logout() {
 }
 
 export async function getDeckName(id) {
-  const { data } = await client
-    .from('Decks')
-    .select('*')
-    .match({ id })
-    .single();
+  const { data } = await client.from('Cards').select('*').match({ id }).single();
   return data;
 }
