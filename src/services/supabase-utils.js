@@ -28,10 +28,10 @@ export async function getDeckName(id) {
 }
 
 
-export async function createDeck(name) {
+export async function createDeck({ name }) {
   const response = await client
     .from('Decks')
-    .insert(name);
+    .insert({ name });
 
   return response;
 }
