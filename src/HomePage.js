@@ -3,47 +3,48 @@ import { getRandomCard } from './services/fetch-utils';
 import CardList from './CardList.js';
 
 export default function HomePage() {
-  const [query, setQuery] = useState();
   const [cards, setCards] = useState([]); //eslint-disable-line
 
-  async function fetchQuery() {
-    const randomCard = await getRandomCard(query);
-    console.log('cardy', randomCard); //eslint-disable-line
-    setCards(randomCard);
+
+  async function handleClick(color) {
+    const randomCards = await getRandomCard(color);
+
+    setCards(randomCards);
+
+
   }
-  // async function setAndFetch() {
-  //   await fetchQuery();
-  //   setQuery('R');
-  // }
-  useEffect(() => {
-    async function fetchQuery() {
-      const randomCard = await getRandomCard(query);
-      setCards(randomCard);
-    }
-    fetchQuery();
-    setQuery();
-  }, [query]);
+
+
+
+  // useEffect(() => {
+  //   async function fetchQuery() {
+  //     const randomCard = await getRandomCard(query);
+  //     setCards(randomCard);
+  //   }
+  //   fetchQuery();
+  //   setQuery();
+  // }, [query]);
   //eslint-disable-line
 
   return (
     <div>
-      <button value={query} onClick={async () => setQuery('|Red|')}>
+      <button onClick={() => handleClick('|Red|')}>
         Red
       </button>
 
-      <button value={query} onClick={async () => setQuery('|Green|')}>
+      <button onClick={() => handleClick('|Green|')}>
         Green
       </button>
 
-      <button value={query} onClick={async () => setQuery('|Black|')}>
+      <button onClick={() => handleClick('|Black|')}>
         Black
       </button>
 
-      <button value={query} onClick={async () => setQuery('|Blue|')}>
+      <button onClick={() => handleClick('|Blue|')}>
         Blue
       </button>
 
-      <button value={query} onClick={async () => setQuery('|White|')}>
+      <button onClick={() => handleClick('|White|')}>
         White
       </button>
 
