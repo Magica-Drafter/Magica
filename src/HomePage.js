@@ -24,36 +24,37 @@ export default function HomePage() {
     setQuery();
   }, [query]);
   //eslint-disable-line
+
   return (
     <div>
-      <button value={query} onClick={async () => setQuery('R')}>
+      <button value={query} onClick={async () => setQuery('|Red|')}>
         Red
       </button>
 
-      <button value={query} onClick={async () => setQuery('G')}>
+      <button value={query} onClick={async () => setQuery('|Green|')}>
         Green
       </button>
 
-      <button value={query} onClick={async () => setQuery('B')}>
+      <button value={query} onClick={async () => setQuery('|Black|')}>
         Black
       </button>
 
-      <button value={query} onClick={async () => setQuery('U')}>
+      <button value={query} onClick={async () => setQuery('|Blue|')}>
         Blue
       </button>
 
-      <button value={query} onClick={async () => setQuery('W')}>
+      <button value={query} onClick={async () => setQuery('|White|')}>
         White
       </button>
 
       <div className='card-list'>
-        <p>{cards.name}</p>
+        <h1>Choose your cards:</h1>
         {cards ? <CardList cards={cards} /> : null}
       </div>
 
       <div className='draft-deck'>
         <h1>Your current draft:</h1>
-        
+
       </div>
     </div>
   );
