@@ -4,8 +4,7 @@ import CardList from './CardList.js';
 
 export default function HomePage() {
   const [query, setQuery] = useState();
-  const [cards, setCards] = useState([]);
-  console.log(query); //eslint-disable-line
+  const [cards, setCards] = useState([]); //eslint-disable-line
 
   async function fetchQuery() {
     setQuery('R');
@@ -24,12 +23,14 @@ export default function HomePage() {
   //   // }
   //   fetchQuery();
   // }, [query]);
-  console.log(cards); //eslint-disable-line
+  //eslint-disable-line
   return (
     <div>
-      <button value={query} onClick={async () => await fetchQuery()}>Random</button>
+      <button value={query} onClick={async () => await fetchQuery()}>
+        Random
+      </button>
       <p>{cards.name}</p>
-      {cards ? <CardList cards={cards} /> : null }
+      {cards ? <CardList cards={cards} /> : null}
     </div>
   );
 }

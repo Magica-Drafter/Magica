@@ -2,11 +2,11 @@ import React from 'react';
 import Card from './Card';
 
 export default function CardList({ cards }) {
-    console.log(cards); //eslint-disable-line
+  //eslint-disable-line
   return (
     <div>
-      {Object.keys(cards).map((card, i) => (
-        <Card key={cards.cards + i} card={card}/>
+      {cards.map(({ name, imageUrl }) => (
+        <Card key={name} name={name} imageUrl={imageUrl} />
       ))}
     </div>
   );
