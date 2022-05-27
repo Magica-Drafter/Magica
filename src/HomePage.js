@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getRandomCard } from './services/fetch-utils';
 import CardList from './CardList.js';
 
-export default function HomePage() {
+export default function HomePage({ deckId }) {
   const [cards, setCards] = useState([]); //eslint-disable-line
 
 
@@ -50,7 +50,7 @@ export default function HomePage() {
 
       <div className='card-list'>
         <h1>Choose your cards:</h1>
-        {cards ? <CardList cards={cards} /> : null}
+        {cards ? <CardList deckId={deckId} cards={cards} /> : null}
       </div>
 
       <div className='draft-deck'>

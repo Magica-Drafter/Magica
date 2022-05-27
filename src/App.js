@@ -15,6 +15,7 @@ import DecksPage from './DecksPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('supabase.auth.token'));
+  const [deckId, setDeckId] = useState();
 
   return (
     
@@ -54,7 +55,7 @@ function App() {
             {
               !currentUser 
                 ? <Redirect to="/"/>
-                : <DecksPage />
+                : <DecksPage setDeckId={setDeckId}/>
             }
             
           </Route>
@@ -62,7 +63,7 @@ function App() {
             {
               !currentUser 
                 ? <Redirect to="/"/>
-                : <HomePage />
+                : <HomePage deckId={deckId}/>
             }
           </Route>
         </Switch>
