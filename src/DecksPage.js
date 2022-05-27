@@ -14,8 +14,8 @@ export default function DecksPage() {
     <div>
       <h3>Create your deck</h3>
       <form onSubmit={handleDeckSubmit}>
-        <label>Deck name:</label>
-        <input onChange={e => setDeckName(e.target.value)}></input>
+        <label>Deck name: </label>
+        <input value={deckName.deck_name} onChange={e => setDeckName(e.target.value)}/>
         <button>Create Deck</button>
       </form>
     </div>
