@@ -36,4 +36,11 @@ export async function createDeck(name) {
   return response;
 }
 
+export async function createCard(card) {
+  const response = await client
+    .from('Cards')
+    .insert(card);
+
+  return response;
+}
 
