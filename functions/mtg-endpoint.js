@@ -4,21 +4,22 @@ require('dotenv').config();
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
 };
-
 
 exports.handler = async (event, context) => {
   try {
     console.log(event.queryStringParameters); //eslint-disable-line
-    const response = await fetch(`https://api.magicthegathering.io/v1/cards?pageSize=5&colorIdentity=${event.queryStringParameters.colorIdentity}&random=true`);
+    const response = await fetch(
+      `https://api.magicthegathering.io/v1/cards?pageSize=5&contains=imageUrl&colorIdentity=${event.queryStringParameters.colorIdentity}&random=true`
+    );
     const data = await response.json();
     const json = JSON.stringify(data);
-    
-    return { 
-      statusCode: 200, 
+
+    return {
+      statusCode: 200,
       headers,
-      body: json
+      body: json,
     };
   } catch (error) {
     console.log(error);
