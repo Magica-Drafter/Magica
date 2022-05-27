@@ -13,7 +13,7 @@ export default function HomePage() {
   }
   // async function setAndFetch() {
   //   await fetchQuery();
-  //   setQuery('R');
+  //   setQuery('R')
   // }
   useEffect(() => {
     async function fetchQuery() {
