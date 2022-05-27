@@ -6,3 +6,4 @@ export async function getRandomCard(query) {
   console.log('fetch', data); //eslint-disable-line
   return data.cards;
 }
+

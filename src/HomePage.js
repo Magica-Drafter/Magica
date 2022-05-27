@@ -46,8 +46,15 @@ export default function HomePage() {
         White
       </button>
 
-      <p>{cards.name}</p>
-      {cards ? <CardList cards={cards} /> : null}
+      <div className='card-list'>
+        <p>{cards.name}</p>
+        {cards ? <CardList cards={cards} /> : null}
+      </div>
+
+      <div className='draft-deck'>
+        <h1>Your current draft:</h1>
+        
+      </div>
     </div>
   );
 }

@@ -30,3 +30,14 @@ export async function getDeckName(id) {
     .single();
   return data;
 }
+
+
+export async function createDeck(name) {
+  const response = await client
+    .from('Decks')
+    .insert(name);
+
+  return response;
+}
+
+

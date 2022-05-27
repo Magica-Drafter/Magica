@@ -4,7 +4,7 @@ import Card from './Card';
 export default function CardList({ cards }) {
   //eslint-disable-line
   return (
-    <div>
+    <div className='card-list'>
       {cards.map(({ name, imageUrl, multiverseid }) => (
         <Card key={name + multiverseid} name={name} imageUrl={imageUrl} />
       ))}
