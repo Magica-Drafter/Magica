@@ -3,7 +3,7 @@ import Card from './Card';
 import Decks from './Decks';
 import { createDeck, getUser, getAllDecksByUser } from './services/supabase-utils';
 
-export default function DecksPage() {
+export default function DecksPage({ setNav }) {
   const [deckName, setDeckName] = useState('');
   const [userDecks, setUserDecks] = useState([]);
   const [render, setRender] = useState([]);
@@ -39,6 +39,8 @@ export default function DecksPage() {
 
     setDeckName('');
 
+    setNav(newDeck);
+    console.log('newDeck', newDeck);
     //console.log(deckId, 'deckId'); //eslint-disable-line
   }
 

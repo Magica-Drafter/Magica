@@ -10,6 +10,7 @@ import DecksPage from './DecksPage';
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [deleteCard, setDeleteCard] = useState();
+  const [nav, setNav] = useState();
 
   // const [deckId, setDeckId] = useState();
   // const [drafted, setDrafted] = useState();
@@ -26,7 +27,9 @@ function App() {
             <Link to="/DecksPage">Decks</Link>
           </li>
           <li>
-            <Link to="/DraftPage">Draft</Link>
+            {nav 
+              ? <Link to="/DraftPage">Draft</Link>
+              : null }
           </li>
           <button onClick={logout}>Logout</button>
         </ul>
@@ -41,7 +44,7 @@ function App() {
             )}
           </Route>
           <Route exact path="/DecksPage">
-            {currentUser ? <DecksPage /> : <Redirect to="/" />}
+            {currentUser ? <DecksPage setNav={setNav} /> : <Redirect to="/" />}
           </Route>
           <Route exact path="/DraftPage">
             {currentUser ? (

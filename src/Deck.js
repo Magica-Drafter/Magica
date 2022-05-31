@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getAllCardsByDeckId, deleteDeck } from './services/supabase-utils';
 import DeckItem from './DeckItem';
+import DraftedCard from './DraftedCard';
 
 export default function Deck({ deleteCard, setDeleteCard }) {
   const params = useParams();
@@ -40,7 +41,15 @@ export default function Deck({ deleteCard, setDeleteCard }) {
       <button onClick={handleDelete}>Delete Deck</button>
       <div className="card-list">
         {cards.map(({ name, imageUrl, id }) => (
-          <DeckItem key={name + id} imageUrl={imageUrl} setDeleteCard={setDeleteCard} id={id} />
+          // <DeckItem key={name + id} imageUrl={imageUrl} setDeleteCard={setDeleteCard} id={id} />
+          <DraftedCard
+            key={name + id}
+            name={name}
+            imageUrl={imageUrl}
+            id={id}
+            setDeleteCard={setDeleteCard}
+          // deckId={deckId}
+          />
         ))}
       </div>
     </>
