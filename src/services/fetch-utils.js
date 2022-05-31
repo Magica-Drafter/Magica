@@ -1,6 +1,6 @@
-export async function getRandomCard(color) {
+export async function getRandomCard(colorIdentity, types) {
   const response = await fetch(
-    `/.netlify/functions/mtg-endpoint?cards&pageSize=15&contains=imageUrl&colors=${color}&random=true`
+    `/.netlify/functions/mtg-endpoint?cards&pageSize=15&contains=imageUrl&types=${types}&colorIdentity=${colorIdentity}&random=true`
   );
   const data = await response.json();
   console.log('fetch', data); //eslint-disable-line
