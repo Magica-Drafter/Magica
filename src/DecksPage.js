@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import Decks from './Decks';
 import { createDeck, getUser, getAllDecksByUser } from './services/supabase-utils';
+import { useHistory } from 'react-router-dom';
 
-export default function DecksPage({ setNav }) {
+export default function DecksPage() {
   const [deckName, setDeckName] = useState('');
   const [userDecks, setUserDecks] = useState([]);
   const [render, setRender] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     async function load() {
@@ -39,7 +41,8 @@ export default function DecksPage({ setNav }) {
 
     setDeckName('');
 
-    setNav(newDeck);
+
+    history.push('/DraftPage');
     // console.log('newDeck', newDeck);
     //console.log(deckId, 'deckId'); //eslint-disable-line
   }
