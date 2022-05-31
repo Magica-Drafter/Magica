@@ -79,6 +79,9 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
               <option key="black" value='B'>
                 Black
               </option>
+              <option key="colorless" value=''>
+                No Color Specified
+              </option>
             </>
           }
         </select>
