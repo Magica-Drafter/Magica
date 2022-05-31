@@ -1,54 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import { getRandomCard } from './services/fetch-utils';
+import { getDraftedCards } from './services/supabase-utils';
 import CardList from './CardList.js';
 
-export default function HomePage() {
-  const [query, setQuery] = useState();
-  const [cards, setCards] = useState([]); //eslint-disable-line
+export default function HomePage({ deckId }) {
+  const [cards, setCards] = useState([]);
+  const [drafted, setDrafted] = useState([]);
+  const [currentDeck, setCurrentDeck] = useState();
+  const [rerender, setRerender] = useState();
 
-  async function fetchQuery() {
-    const randomCard = await getRandomCard(query);
-    console.log('cardy', randomCard); //eslint-disable-line
-    setCards(randomCard);
-  }
-  // async function setAndFetch() {
-  //   await fetchQuery();
-  //   setQuery('R');
-  // }
   useEffect(() => {
-    async function fetchQuery() {
-      const randomCard = await getRandomCard(query);
-      setCards(randomCard);
+    async function load() {
+      const localDeck = localStorage.getItem('currentDeckId');
+
+      setCurrentDeck(localDeck);
+
+      const draftedCards = await getDraftedCards(localDeck);
+
+      setDrafted(draftedCards);
+      console.log('localDeck', localDeck);
+      console.log('draftedCards', draftedCards);
+      console.log('drafted', drafted);
     }
-    fetchQuery();
-    setQuery();
-  }, [query]);
+    load();
+  }, [rerender]); //eslint-disable-line
+
+  async function handleClick(color) {
+    const randomCards = await getRandomCard(color);
+
+    setCards(randomCards);
+  }
+
+  // useEffect(() => {
+  //   async function load() {
+  //     const drafted = await getDraftedCards(deckId);
+
+  //     console.log('drafted', drafted);
+
+  //     console.log('deckId', deckId);
+
+  //     setDrafted(drafted);
+  //   }
+  //   load();
+  // }, [deckId]);
+
+  // useEffect(() => {
+  //   async function fetchQuery() {
+  //     const randomCard = await getRandomCard(query);
+  //     setCards(randomCard);
+  //   }
+  //   fetchQuery();
+  //   setQuery();
+  // }, [query]);
   //eslint-disable-line
 
   return (
     <div>
-      <button value={query} onClick={async () => setQuery('|Red|')}>
-        Red
-      </button>
+      <button onClick={() => handleClick('|Red|')}>Red</button>
+      <button onClick={() => handleClick('|Green|')}>Green</button>
+      <button onClick={() => handleClick('|Black|')}>Black</button>
+      <button onClick={() => handleClick('|Blue|')}>Blue</button>
+      <button onClick={() => handleClick('|White|')}>White</button>
 
-      <button value={query} onClick={async () => setQuery('|Green|')}>
-        Green
-      </button>
-
-      <button value={query} onClick={async () => setQuery('|Black|')}>
-        Black
-      </button>
-
-      <button value={query} onClick={async () => setQuery('|Blue|')}>
-        Blue
-      </button>
-
-      <button value={query} onClick={async () => setQuery('|White|')}>
-        White
-      </button>
-
-      <p>{cards.name}</p>
-      {cards ? <CardList cards={cards} /> : null}
+      {/* <h1>Choose your cards:</h1> */}
+      {cards ? (
+        <CardList
+          deckId={deckId}
+          cards={cards}
+          drafted={drafted}
+          currentDeck={currentDeck}
+          setRerender={setRerender}
+        />
+      ) : null}
     </div>
   );
 }
