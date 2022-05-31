@@ -34,6 +34,9 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   async function handleClick() {
     setIsLoading(true);
     const randomCards = await getRandomCard(colorIdentity, type, set);
+    if (randomCards.length === 0) {
+      alert('No results match your search.');
+    }
 
     setCards(randomCards);
     setIsLoading(false);
