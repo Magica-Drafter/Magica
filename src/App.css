@@ -41,7 +41,34 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 50px;
 }
+
+.deck-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+/* .choose-cards {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-bottom: 15px;
+} */
+/* .deck {
+  display: flex;
+  justify-content: center;
+} */
+/* .header-text {
+  display: flex;
+  flex-direction: column;
+} */
+/* h3 {
+  display: flex;
+  flex-direction: column;
+} */
 
 img {
   height: 311px;

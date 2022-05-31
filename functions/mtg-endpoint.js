@@ -7,7 +7,7 @@ const headers = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
 };
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   try {
     console.log(event.queryStringParameters); //eslint-disable-line
     const response = await fetch(

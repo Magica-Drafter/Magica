@@ -1,35 +1,32 @@
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-  Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import AuthPage from './AuthPage';
-import React, { useState } from 'react';
-import { logout } from './services/supabase-utils';
-import HomePage from './HomePage';
+import React, { useState, useEffect } from 'react';
+import { logout, getUser } from './services/supabase-utils';
+import Deck from './Deck.js';
 import DraftPage from './DraftPage';
 import DecksPage from './DecksPage';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(localStorage.getItem('supabase.auth.token'));
-  const [deckId, setDeckId] = useState();
+  const [currentUser, setCurrentUser] = useState({});
+  const [deleteCard, setDeleteCard] = useState();
+
+  // const [deckId, setDeckId] = useState();
+  // const [drafted, setDrafted] = useState();
+  useEffect(() => {
+    const user = getUser();
+    setCurrentUser(user);
+  }, []);
 
   return (
-    
     <Router>
       <nav>
         <ul>
           <li>
-            <Link to="/">Search</Link>
+            <Link to="/DecksPage">Decks</Link>
           </li>
           <li>
             <Link to="/DraftPage">Draft</Link>
-          </li>
-          <li>
-            <Link to="/DecksPage">Saved Decks</Link>
           </li>
           <button onClick={logout}>Logout</button>
         </ul>
@@ -37,34 +34,28 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            {
-              currentUser 
-                ? <Redirect to="/home"/>
-                : <AuthPage setCurrentUser={setCurrentUser} />
-            }
+            {currentUser ? (
+              <Redirect to="/DecksPage" />
+            ) : (
+              <AuthPage setCurrentUser={setCurrentUser} />
+            )}
           </Route>
-          <Route path="/DraftPage">
-            {
-              !currentUser 
-                ? <Redirect to="/"/>
-                : <DraftPage />
-            }
-            
+          <Route exact path="/DecksPage">
+            {currentUser ? <DecksPage /> : <Redirect to="/" />}
           </Route>
-          <Route path="/DecksPage">
-            {
-              !currentUser 
-                ? <Redirect to="/"/>
-                : <DecksPage setDeckId={setDeckId}/>
-            }
-            
+          <Route exact path="/DraftPage">
+            {currentUser ? (
+              <DraftPage deleteCard={deleteCard} setDeleteCard={setDeleteCard} />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
-          <Route path="/">
-            {
-              !currentUser 
-                ? <Redirect to="/"/>
-                : <HomePage deckId={deckId}/>
-            }
+          <Route exact path="/Deck/:id">
+            {currentUser ? (
+              <Deck deleteCard={deleteCard} setDeleteCard={setDeleteCard} />
+            ) : (
+              <Redirect to="/" />
+            )}
           </Route>
         </Switch>
       </div>
