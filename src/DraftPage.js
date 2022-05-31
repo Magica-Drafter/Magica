@@ -3,6 +3,7 @@ import { getRandomCard } from './services/fetch-utils';
 import { getDraftedCards } from './services/supabase-utils';
 import CardList from './CardList.js';
 import { types, subtypes, sets } from './mtgparams';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [cards, setCards] = useState([]);
@@ -12,10 +13,12 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [type, setType] = useState('');
   const [set, setSet] = useState('');
   const [colorIdentity, setColorIdentity] = useState('R');
+  const [isLoading, setIsLoading] = useState(false);
   // const [deleteCard, setDeleteCard] = useState();
 
   useEffect(() => {
     async function load() {
+
       const localDeck = localStorage.getItem('currentDeckId');
 
       setCurrentDeck(localDeck);
@@ -29,9 +32,11 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
 
 
   async function handleClick() {
+    setIsLoading(true);
     const randomCards = await getRandomCard(colorIdentity, type, set);
 
     setCards(randomCards);
+    setIsLoading(false);
   }
 
   // useEffect(() => {
@@ -118,7 +123,9 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
         <button onClick={() => handleClick('|White|')}>White</button> */}
 
         {/* <h1>Choose your cards:</h1> */}
-        {cards ? (
+
+        
+        {(cards && !isLoading) ? (
           <CardList
             // deckId={deckId}
             cards={cards}
@@ -127,7 +134,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
             setRerender={setRerender}
             setDeleteCard={setDeleteCard}
           />
-        ) : null}
+        ) : <LoadingSpinner />}
       </div>
     </>
   );
