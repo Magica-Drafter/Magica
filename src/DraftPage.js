@@ -19,14 +19,14 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
       const draftedCards = await getDraftedCards(localDeck);
 
       setDrafted(draftedCards);
-      console.log('localDeck', localDeck);
-      console.log('draftedCards', draftedCards);
-      console.log('drafted', drafted);
+      // console.log('localDeck', localDeck);
+      // console.log('draftedCards', draftedCards);
+      // console.log('drafted', drafted);
     }
     load();
   }, [rerender, deleteCard]); //eslint-disable-line
 
-  console.log('deleteCard', deleteCard);
+  // console.log('deleteCard', deleteCard);
 
   async function handleClick(color) {
     const randomCards = await getRandomCard(color);

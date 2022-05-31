@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { getAllCardsByDeckId, deleteDeck, getDeckName } from './services/supabase-utils';
-// import DeckItem from './DeckItem';
+import { getAllCardsByDeckId, deleteDeck, getDeckName, changeDeckName } from './services/supabase-utils';
 import DraftedCard from './DraftedCard';
 
 export default function Deck({ deleteCard, setDeleteCard }) {
@@ -10,21 +9,29 @@ export default function Deck({ deleteCard, setDeleteCard }) {
   const [cards, setCards] = useState([]);
   const history = useHistory();
   const [deckName, setDeckName] = useState();
+  const [editDeckName, setEditDeckName] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     async function load() {
       const cardsReceived = await getAllCardsByDeckId(params.id);
-      // localStorage.setItem('currentDeckId', params.id);
       setDeckName(await getDeckName(params.id));
-
-      console.log('cardsReceived', cardsReceived);
-
       setCards(cardsReceived);
     }
 
     load();
-    // you'll need to define a fetch function here (then call it below) that gets this page's beanie baby and injects it into state using the correct state handler
-  }, [params.id, deleteCard]);
+  }, [params.id, deleteCard, deckName]);
+
+  function handleEdit() {
+    setShowButton(true);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await changeDeckName(params.id, editDeckName);
+    setDeckName(editDeckName);
+    setShowButton(false);
+  }
 
   function handleClick() {
     localStorage.setItem('currentDeckId', params.id);
@@ -39,19 +46,27 @@ export default function Deck({ deleteCard, setDeleteCard }) {
   }
   return (
     <>
-      <h3> {deckName} </h3>
-      <button onClick={handleClick}>ReDraft Deck</button>
+      <div>
+        <h3> {deckName} </h3>
+      </div>
+      <button onClick={handleEdit}>Edit Deck Name </button>
+      {showButton ? <form onSubmit={handleSubmit}>
+        <input onChange={(e) => setEditDeckName(e.target.value)} />
+        <button> Submit</button>
+      </form> : null
+      }
+
+
+      <button onClick={handleClick}>Redraft Deck</button>
       <button onClick={handleDelete}>Delete Deck</button>
       <div className="card-list">
         {cards.map(({ name, imageUrl, id }) => (
-          // <DeckItem key={name + id} imageUrl={imageUrl} setDeleteCard={setDeleteCard} id={id} />
           <DraftedCard
             key={name + id}
             name={name}
             imageUrl={imageUrl}
             id={id}
             setDeleteCard={setDeleteCard}
-          // deckId={deckId}
           />
         ))}
       </div>
