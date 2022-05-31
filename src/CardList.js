@@ -5,7 +5,7 @@ import DraftedCard from './DraftedCard';
 import { useState, useEffect } from 'react';
 import { getDeckName } from './services/supabase-utils';
 
-export default function CardList({ cards, drafted, setRerender, currentDeck, setDeleteCard }) {
+export default function CardList({ cards, drafted, setRerender, currentDeck, setDeleteCard, handleDraftClick }) {
   //eslint-disable-line
   const [deckName, setDeckName] = useState();
 
@@ -32,6 +32,7 @@ export default function CardList({ cards, drafted, setRerender, currentDeck, set
             // deckId={deckId}
             setRerender={setRerender}
             currentDeck={currentDeck}
+            handleDraftClick={handleDraftClick}
           />
         ))}
       </div>

@@ -31,7 +31,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   }, [rerender, deleteCard]); //eslint-disable-line
 
 
-  async function handleClick() {
+  async function handleDraftClick() {
     setIsLoading(true);
     const randomCards = await getRandomCard(colorIdentity, type, set);
     if (randomCards.length === 0) {
@@ -119,7 +119,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
 
 
       <div>
-        <button onClick={handleClick}>Search</button>
+        <button onClick={handleDraftClick}>Search</button>
         {/* <button onClick={() => handleClick('|Green|')}>Green</button>
         <button onClick={() => handleClick('|Black|')}>Black</button>
         <button onClick={() => handleClick('|Blue|')}>Blue</button>
@@ -136,6 +136,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
             currentDeck={currentDeck}
             setRerender={setRerender}
             setDeleteCard={setDeleteCard}
+            handleDraftClick={handleDraftClick}
           />
         ) : <LoadingSpinner />}
       </div>
