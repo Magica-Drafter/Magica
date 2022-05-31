@@ -54,7 +54,7 @@ export default function DecksPage({ setNav }) {
         <h3>Create your deck</h3>
         <form onSubmit={handleDeckSubmit}>
           <label>Deck name: </label>
-          <input value={deckName} onChange={(e) => setDeckName(e.target.value)} />
+          <input required value={deckName} onChange={(e) => setDeckName(e.target.value)} />
           <button>Create Deck</button>
         </form>
       </div>
