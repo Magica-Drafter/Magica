@@ -11,7 +11,7 @@ exports.handler = async (event) => {
   try {
     console.log(event.queryStringParameters); //eslint-disable-line
     const response = await fetch(
-      `https://api.magicthegathering.io/v1/cards?pageSize=15&contains=imageUrl&types=${event.queryStringParameters.types}&colorIdentity=${event.queryStringParameters.colorIdentity}&random=true`
+      `https://api.magicthegathering.io/v1/cards?pageSize=15&contains=imageUrl&types=${event.queryStringParameters.types}&setName=${event.queryStringParameters.setName}&colorIdentity=${event.queryStringParameters.colorIdentity}&random=true`
     );
     const data = await response.json();
     const json = JSON.stringify(data);

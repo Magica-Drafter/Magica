@@ -9,8 +9,9 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [drafted, setDrafted] = useState([]);
   const [currentDeck, setCurrentDeck] = useState();
   const [rerender, setRerender] = useState();
-  const [type, setType] = useState('Artifact');
-  const [colorIdentity, setColorIdentity] = useState('|Red|');
+  const [type, setType] = useState('');
+  const [set, setSet] = useState('');
+  const [colorIdentity, setColorIdentity] = useState('R');
   // const [deleteCard, setDeleteCard] = useState();
 
   useEffect(() => {
@@ -22,19 +23,13 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
       const draftedCards = await getDraftedCards(localDeck);
 
       setDrafted(draftedCards);
-      console.log('localDeck', localDeck);
-      console.log('draftedCards', draftedCards);
-      console.log('drafted', drafted);
     }
     load();
   }, [rerender, deleteCard]); //eslint-disable-line
 
-  console.log('deleteCard', deleteCard);
 
   async function handleClick() {
-    const randomCards = await getRandomCard(colorIdentity, type);
-
-    // console.log('color', color);
+    const randomCards = await getRandomCard(colorIdentity, type, set);
 
     setCards(randomCards);
   }
@@ -99,8 +94,18 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           ))}
         </select>
       </div>
+      <div>
+        <p>Sort By Set</p>
+        <select onChange={(e) => setSet(e.target.value)}>
+          <option></option>
+          {sets.map((item) => (
+            <option key={item} value={`${item}`}>
+              {item}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <div />
 
       <div>
         <button onClick={handleClick}>Search</button>
