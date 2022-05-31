@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { getAllCardsByDeckId, deleteDeck, getDeckName, changeDeckName } from './services/supabase-utils';
+import {
+  getAllCardsByDeckId,
+  deleteDeck,
+  getDeckName,
+  changeDeckName,
+} from './services/supabase-utils';
 import DraftedCard from './DraftedCard';
 
 export default function Deck({ deleteCard, setDeleteCard }) {
@@ -17,6 +22,7 @@ export default function Deck({ deleteCard, setDeleteCard }) {
       const cardsReceived = await getAllCardsByDeckId(params.id);
       setDeckName(await getDeckName(params.id));
       setCards(cardsReceived);
+      setEditDeckName(deckName);
     }
 
     load();
@@ -50,12 +56,12 @@ export default function Deck({ deleteCard, setDeleteCard }) {
         <h3> {deckName} </h3>
       </div>
       <button onClick={handleEdit}>Edit Deck Name </button>
-      {showButton ? <form onSubmit={handleSubmit}>
-        <input onChange={(e) => setEditDeckName(e.target.value)} />
-        <button> Submit</button>
-      </form> : null
-      }
-
+      {showButton ? (
+        <form onSubmit={handleSubmit}>
+          <input value={editDeckName} onChange={(e) => setEditDeckName(e.target.value)} />
+          <button> Submit</button>
+        </form>
+      ) : null}
 
       <button onClick={handleClick}>Edit Deck</button>
       <button onClick={handleDelete}>Delete Deck</button>
