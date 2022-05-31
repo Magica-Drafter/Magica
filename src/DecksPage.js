@@ -15,7 +15,7 @@ export default function DecksPage({ setNav }) {
       const userId = loggedInUser.id;
       const returnedDecks = await getAllDecksByUser(userId);
 
-      console.log('returnedDecks', returnedDecks);
+      // console.log('returnedDecks', returnedDecks);
 
       setUserDecks(returnedDecks);
     }
@@ -29,9 +29,9 @@ export default function DecksPage({ setNav }) {
 
     const localDeckId = localStorage.setItem('currentDeckId', id);
 
-    console.log(newDeck, 3); //eslint-disable-line
-    console.log(id, 'actual ID'); //eslint-disable-line
-    console.log(typeof id, 'ID type'); //eslint-disable-line
+    // console.log(newDeck, 3); //eslint-disable-line
+    // console.log(id, 'actual ID'); //eslint-disable-line
+    // console.log(typeof id, 'ID type'); //eslint-disable-line
 
     // console.log('currentUser', currentUser.id);
 
@@ -40,7 +40,7 @@ export default function DecksPage({ setNav }) {
     setDeckName('');
 
     setNav(newDeck);
-    console.log('newDeck', newDeck);
+    // console.log('newDeck', newDeck);
     //console.log(deckId, 'deckId'); //eslint-disable-line
   }
 

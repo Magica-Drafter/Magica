@@ -18,9 +18,9 @@ export default function HomePage({ deckId }) {
       const draftedCards = await getDraftedCards(localDeck);
 
       setDrafted(draftedCards);
-      console.log('localDeck', localDeck);
-      console.log('draftedCards', draftedCards);
-      console.log('drafted', drafted);
+      // console.log('localDeck', localDeck);
+      // console.log('draftedCards', draftedCards);
+      // console.log('drafted', drafted);
     }
     load();
   }, [rerender]); //eslint-disable-line

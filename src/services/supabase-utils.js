@@ -24,7 +24,14 @@ export async function logout() {
 
 export async function createDeck(deck_name) {
   const response = await client.from('Decks').insert({ deck_name });
+  return response;
+}
 
+export async function changeDeckName(id, newName) {
+  const response = await client
+    .from('Decks')
+    .update({ deck_name: newName })
+    .match({ id });
   return response;
 }
 

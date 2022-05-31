@@ -2,8 +2,8 @@ import React from 'react';
 import { deleteDraftedCard } from './services/supabase-utils';
 
 export default function DraftedCard({ imageUrl, id, setDeleteCard }) {
-  console.log('newCardId', [id]);
-  console.log(id);
+  // console.log('newCardId', [id]);
+  // console.log(id);
 
   async function handleClick() {
     await deleteDraftedCard(id);
