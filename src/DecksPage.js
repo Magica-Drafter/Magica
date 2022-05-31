@@ -2,22 +2,28 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import Decks from './Decks';
 import { createDeck, getUser, getAllDecksByUser } from './services/supabase-utils';
+import { useHistory } from 'react-router-dom';
+import LoadingSpinner from './LoadingSpinner';
 
-export default function DecksPage({ setNav }) {
+export default function DecksPage() {
   const [deckName, setDeckName] = useState('');
   const [userDecks, setUserDecks] = useState([]);
   const [render, setRender] = useState([]);
+  const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
       const loggedInUser = await getUser();
 
       const userId = loggedInUser.id;
+      setIsLoading(true);
       const returnedDecks = await getAllDecksByUser(userId);
 
       // console.log('returnedDecks', returnedDecks);
 
       setUserDecks(returnedDecks);
+      setIsLoading(false);
     }
     load();
   }, [render]);
@@ -39,7 +45,8 @@ export default function DecksPage({ setNav }) {
 
     setDeckName('');
 
-    setNav(newDeck);
+
+    history.push('/DraftPage');
     // console.log('newDeck', newDeck);
     //console.log(deckId, 'deckId'); //eslint-disable-line
   }
@@ -60,9 +67,12 @@ export default function DecksPage({ setNav }) {
       </div>
       <h3>Your Current Decks</h3>
       <div className="deck-list">
-        {userDecks.map(({ deck_name, id }) => (
-          <Decks key={deck_name + id} deck_name={deck_name} id={id} />
-        ))}
+        {isLoading 
+          ? <LoadingSpinner />
+          : userDecks.map(({ deck_name, id }) => (
+            <Decks key={deck_name + id} deck_name={deck_name} id={id} />
+          ))
+        }
       </div>
     </>
   );

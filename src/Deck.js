@@ -57,7 +57,7 @@ export default function Deck({ deleteCard, setDeleteCard }) {
       }
 
 
-      <button onClick={handleClick}>Redraft Deck</button>
+      <button onClick={handleClick}>Edit Deck</button>
       <button onClick={handleDelete}>Delete Deck</button>
       <div className="card-list">
         {cards.map(({ name, imageUrl, id }) => (
