@@ -22,11 +22,6 @@ export async function logout() {
   return (window.location.href = '../');
 }
 
-export async function getDeckName(id) {
-  const { data } = await client.from('Cards').select('*').match({ id }).single();
-  return data;
-}
-
 export async function createDeck(deck_name) {
   const response = await client.from('Decks').insert({ deck_name });
 
@@ -53,6 +48,16 @@ export async function getAllCardsByDeckId(deckId) {
   const { data } = await client.from('Cards').select('*').match({ deck_id: deckId });
   return data;
 }
+
+export async function getDeckName(id) {
+  const { data } = await client
+    .from('Decks')
+    .select('deck_name')
+    .match({ id })
+    .single();
+  return data.deck_name;
+}
+ 
 
 export async function deleteDraftedCard(card) {
   const response = await client.from('Cards').delete().match({ id: card });

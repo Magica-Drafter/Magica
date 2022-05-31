@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { getAllCardsByDeckId, deleteDeck } from './services/supabase-utils';
-import DeckItem from './DeckItem';
+import { getAllCardsByDeckId, deleteDeck, getDeckName } from './services/supabase-utils';
+// import DeckItem from './DeckItem';
+import DraftedCard from './DraftedCard';
 
 export default function Deck({ deleteCard, setDeleteCard }) {
   const params = useParams();
   const [cards, setCards] = useState([]);
   const history = useHistory();
+  const [deckName, setDeckName] = useState();
+
   useEffect(() => {
     async function load() {
       const cardsReceived = await getAllCardsByDeckId(params.id);
       // localStorage.setItem('currentDeckId', params.id);
+      setDeckName(await getDeckName(params.id));
 
       console.log('cardsReceived', cardsReceived);
 
@@ -35,12 +39,20 @@ export default function Deck({ deleteCard, setDeleteCard }) {
   }
   return (
     <>
-      <h3> Your Current Deck</h3>
+      <h3> {deckName} </h3>
       <button onClick={handleClick}>ReDraft Deck</button>
       <button onClick={handleDelete}>Delete Deck</button>
       <div className="card-list">
         {cards.map(({ name, imageUrl, id }) => (
-          <DeckItem key={name + id} imageUrl={imageUrl} setDeleteCard={setDeleteCard} id={id} />
+          // <DeckItem key={name + id} imageUrl={imageUrl} setDeleteCard={setDeleteCard} id={id} />
+          <DraftedCard
+            key={name + id}
+            name={name}
+            imageUrl={imageUrl}
+            id={id}
+            setDeleteCard={setDeleteCard}
+          // deckId={deckId}
+          />
         ))}
       </div>
     </>
