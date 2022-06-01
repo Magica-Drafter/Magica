@@ -31,6 +31,7 @@
 
 body {
   height: 100%;
+  background-repeat: no-repeat;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background.jpg');
   color: white;
   -webkit-text-fill-color: white;
@@ -56,11 +57,21 @@ body {
   margin-bottom: 50px;
 }
 
+.draft-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  border: outset;
+  border-color: gray;
+}
+
 .deck-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 50px;
+  padding: 20px;
 }
 
 /* .choose-cards {
@@ -84,12 +95,23 @@ body {
 
 img {
   height: 311px;
+  padding: 25px;
 }
 
 .drafted-card{
   position:relative;
-	background: #f90;
   margin: 5px;
+}
+
+.drafted-card img {
+  border-radius: 25px;
+}
+
+.card {
+  margin: 5px;
+}
+.card img {
+  border-radius: 25px;
 }
 
 .drafted-card-button{
@@ -163,7 +185,7 @@ img {
 
 .footer {
   padding-top: 15px;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -185,6 +207,8 @@ img {
   margin: 15px;
   margin-top: 165px;
 } */
+
+
 
 .deck-container {
   background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
@@ -222,3 +246,22 @@ img {
   margin-top: 165px;
   padding-bottom: 55px;
 }
+
+.draft-dropdowns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  color: white;
+  font-weight: bold;
+
+}
+
+.draft-dropdowns select {
+  margin: 10px;
+}
+
+.draft-container {
+  margin: 100px;
+}
+

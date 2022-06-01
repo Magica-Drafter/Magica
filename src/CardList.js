@@ -22,34 +22,36 @@ export default function CardList({ cards, drafted, setRerender, currentDeck, set
 
   return (
     <>
-      <h3>Choose Cards</h3>
-      <div className="card-list">
-        {cards.map(({ name, imageUrl, multiverseid }) => (
-          <Card
-            key={name + multiverseid}
-            name={name}
-            imageUrl={imageUrl}
+      <div className='draft-container'>
+        <h1>Choose Cards</h1>
+        <div className="card-list">
+          {cards.map(({ name, imageUrl, multiverseid }) => (
+            <Card
+              key={name + multiverseid}
+              name={name}
+              imageUrl={imageUrl}
             // deckId={deckId}
-            setRerender={setRerender}
-            currentDeck={currentDeck}
-            handleDraftClick={handleDraftClick}
-          />
-        ))}
-      </div>
+              setRerender={setRerender}
+              currentDeck={currentDeck}
+              handleDraftClick={handleDraftClick}
+            />
+          ))}
+        </div>
 
-      <h3>{deckName} Draft</h3>
+        <h1>{deckName} Draft</h1>
 
-      <div className="card-list">
-        {drafted.map(({ name, imageUrl, id }) => (
-          <DraftedCard
-            key={name + id}
-            name={name}
-            imageUrl={imageUrl}
-            id={id}
-            setDeleteCard={setDeleteCard}
+        <div className="draft-list">
+          {drafted.map(({ name, imageUrl, id }) => (
+            <DraftedCard
+              key={name + id}
+              name={name}
+              imageUrl={imageUrl}
+              id={id}
+              setDeleteCard={setDeleteCard}
             // deckId={deckId}
-          />
-        ))}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
