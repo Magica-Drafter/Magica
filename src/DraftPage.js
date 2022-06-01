@@ -22,10 +22,14 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
       const localDeck = localStorage.getItem('currentDeckId');
 
       setCurrentDeck(localDeck);
+      
+      setIsLoading(true);
 
       const draftedCards = await getDraftedCards(localDeck);
 
       setDrafted(draftedCards);
+      setIsLoading(false);
+      
     }
     load();
   }, [rerender, deleteCard]); //eslint-disable-line
@@ -67,59 +71,61 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
 
   return (
     <>
-      <div className="type-div">
-        <p>Sort By Mana Color</p>
-        <select value={colorIdentity} onChange={(e) => setColorIdentity(e.target.value)}>
-          {
-            <>
-              <option key="red" value='R'>
+      <div className="draft-dropdowns">
+        <div>
+          <label>Sort By Manna Color</label>
+          <select value={colorIdentity} onChange={(e) => setColorIdentity(e.target.value)}>
+            {
+              <>
+                <option key="red" value='R'>
                 Red
-              </option>
-              <option key="green" value='G'>
+                </option>
+                <option key="green" value='G'>
                 Green
-              </option>
-              <option key="blue" value='U'>
+                </option>
+                <option key="blue" value='U'>
                 Blue
-              </option>
-              <option key="white" value='W'>
+                </option>
+                <option key="white" value='W'>
                 White
-              </option>
-              <option key="black" value='B'>
+                </option>
+                <option key="black" value='B'>
                 Black
-              </option>
-              <option key="colorless" value=''>
+                </option>
+                <option key="colorless" value=''>
                 No Color Specified
+                </option>
+              </>
+            }
+          </select>
+        </div>
+        <div>
+          <label>Sort By Type</label>
+          <select onChange={(e) => setType(e.target.value)}>
+            <option></option>
+            {types.map((item) => (
+              <option key={item} value={`${item}`}>
+                {item}
               </option>
-            </>
-          }
-        </select>
-      </div>
-      <div>
-        <p>Sort By Type</p>
-        <select onChange={(e) => setType(e.target.value)}>
-          <option></option>
-          {types.map((item) => (
-            <option key={item} value={`${item}`}>
-              {item}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div>
-        <p>Sort By Set</p>
-        <select onChange={(e) => setSet(e.target.value)}>
-          <option></option>
-          {sets.map((item) => (
-            <option key={item} value={`${item}`}>
-              {item}
-            </option>
-          ))}
-        </select>
-      </div>
-
-
-      <div>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label>Sort By Set</label>
+          <select onChange={(e) => setSet(e.target.value)}>
+            <option></option>
+            {sets.map((item) => (
+              <option key={item} value={`${item}`}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </div>
         <button onClick={handleDraftClick}>Search</button>
+      </div>
+
+
+      <div className='draft-border'>
         {/* <button onClick={() => handleClick('|Green|')}>Green</button>
         <button onClick={() => handleClick('|Black|')}>Black</button>
         <button onClick={() => handleClick('|Blue|')}>Blue</button>

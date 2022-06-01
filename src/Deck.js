@@ -8,6 +8,7 @@ import {
   changeDeckName,
 } from './services/supabase-utils';
 import DraftedCard from './DraftedCard';
+import LoadingSpinner from './LoadingSpinner';
 
 export default function Deck({ deleteCard, setDeleteCard }) {
   const params = useParams();
@@ -16,6 +17,7 @@ export default function Deck({ deleteCard, setDeleteCard }) {
   const [deckName, setDeckName] = useState();
   const [editDeckName, setEditDeckName] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
@@ -34,9 +36,11 @@ export default function Deck({ deleteCard, setDeleteCard }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     await changeDeckName(params.id, editDeckName);
     setDeckName(editDeckName);
     setShowButton(false);
+    setIsLoading(false);
   }
 
   function handleClick() {
@@ -53,7 +57,7 @@ export default function Deck({ deleteCard, setDeleteCard }) {
   return (
     <>
       <div className='edit-deck'>
-        <h3> {deckName} </h3>
+        <h1> {deckName} </h1>
       
         <button onClick={handleEdit}>Edit Deck Name </button>
         {showButton ? (

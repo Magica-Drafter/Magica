@@ -17,7 +17,7 @@ export default function Card({ name, imageUrl, setRerender, currentDeck, handleD
   
 
   return (
-    <div className="deck" onClick={handleClickWrapper}>
+    <div className="card" onClick={handleClickWrapper}>
       <img src={imageUrl} />
     </div>
   );

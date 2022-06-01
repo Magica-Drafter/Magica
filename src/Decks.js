@@ -6,7 +6,7 @@ export default function Decks({ deck_name, id }) {
   return (
     <Link to={`/deck/${id}`}>
       <div className="deck">
-        <div>{deck_name}</div>
+        <h3>{deck_name}</h3>
         <img src={Image} />
       </div>
     </Link>

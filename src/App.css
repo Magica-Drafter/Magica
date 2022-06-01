@@ -31,6 +31,7 @@
 
 body {
   height: 100%;
+  background-repeat: no-repeat;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background.jpg');
   color: white;
   -webkit-text-fill-color: white;
@@ -56,11 +57,21 @@ body {
   margin-bottom: 50px;
 }
 
+.draft-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  border: outset;
+  border-color: gray;
+}
+
 .deck-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 50px;
+  padding: 20px;
 }
 
 /* .choose-cards {
@@ -88,8 +99,41 @@ img {
 
 .drafted-card{
   position:relative;
-	background: #f90;
   margin: 5px;
+}
+
+.drafted-card:hover {
+  outline: none;
+    border-color: #9ecaed;
+    border-radius: 25px;
+    box-shadow: 0 0 35px #9ecaed;
+}
+
+.drafted-card img {
+  border-radius: 25px;
+}
+
+.card {
+  margin: 5px;
+  
+}
+
+.card:hover {
+  outline: none;
+    border-color: #9ecaed;
+    border-radius: 25px;
+    box-shadow: 0 0 35px #9ecaed;
+  
+}
+
+.card img {
+  border-radius: 25px;
+  
+}
+
+.card img:hover {
+  border-radius: 25px;
+  
 }
 
 .drafted-card-button{
@@ -102,23 +146,28 @@ img {
 
 .drafted-card:hover .drafted-card-button{ 
 	display:block;
+  
 }
 
 .header {
-  position: absolute;
+  /* position: absolute; */
+  display: flex;
   top: 0px;
   margin: 0;
   height: 10vh;
   width: 100%;
   background-color: black;
+
 }
 
 .navLinks {
     display: flex;
     justify-content: center;
+    width: 80%;
     align-items: center;
     margin: 10px;
     text-decoration: none;
+    /* margin-left: 800px; */
 
 }
 
@@ -127,13 +176,14 @@ img {
 }
 
 .logo {
-    width: 300px;
+    
+    width: 150px;
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-left: 10px;
-  color: white;
+    color: white;
 }
+
 .home-page {
   margin: 200px;
   align-items: center;
@@ -158,7 +208,7 @@ img {
 
 .footer {
   padding-top: 15px;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -180,6 +230,8 @@ img {
   margin: 15px;
   margin-top: 165px;
 } */
+
+
 
 .deck-container {
   background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
@@ -205,6 +257,14 @@ img {
 
 .deck {
   margin: 30px;
+  color: white;
+}
+
+.deck:hover {
+  outline: none;
+  border-color: #9ecaed;
+  border-radius: 25px;
+  box-shadow: 0 0 35px #9ecaed;
 }
 
 .edit-deck {
@@ -216,4 +276,49 @@ img {
   margin: 15px;
   margin-top: 165px;
   padding-bottom: 55px;
+}
+
+.draft-dropdowns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  color: white;
+  font-weight: bold;
+
+}
+
+.draft-dropdowns select {
+  margin: 10px;
+}
+
+.draft-container {
+  margin: 100px;
+}
+
+.loading {
+  text-align: center;
+}
+
+/* body {
+  background-color: #282c34;
+} */
+
+.loading {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loading {
+    animation: spinner infinite 2s linear;
+  }
+}
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
