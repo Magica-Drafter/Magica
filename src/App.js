@@ -7,6 +7,8 @@ import Deck from './Deck.js';
 import AboutUs from './AboutUs';
 import DraftPage from './DraftPage';
 import DecksPage from './DecksPage';
+import Header from './Header';
+import Footer from './Footer';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -21,17 +23,7 @@ function App() {
 
   return (
     <Router>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/DecksPage">Decks</Link>
-          </li>
-          <li>
-            <Link to="/AboutUs">About Us</Link>
-          </li>
-          <button onClick={logout}>Logout</button>
-        </ul>
-      </nav>
+      <Header />
       <div className="App">
         <Switch>
           <Route exact path="/">
@@ -67,6 +59,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 }
