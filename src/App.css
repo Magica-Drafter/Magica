@@ -31,11 +31,13 @@
 
 body {
   height: 100%;
-  background-image: url('./images/background.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background.jpg');
   color: white;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+  padding: 0;
+  margin: 0;
 }
 
 @keyframes App-logo-spin {
@@ -100,4 +102,118 @@ img {
 
 .drafted-card:hover .drafted-card-button{ 
 	display:block;
+}
+
+.header {
+  position: absolute;
+  top: 0px;
+  margin: 0;
+  height: 10vh;
+  width: 100%;
+  background-color: black;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
+
+}
+
+.Link {
+  margin: 20px;
+}
+
+.logo {
+    width: 300px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+  color: white;
+}
+.home-page {
+  margin: 200px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login-form {
+  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  padding: 30px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  margin: 15px;
+  margin-top: 165px;
+}
+
+.login-form input {
+  align-items: center;
+}
+
+.footer {
+  padding-top: 15px;
+  position: absolute;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  bottom: 0px;
+  margin: 0;
+  height: 5vh;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+/* .deck-list {
+  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  padding: 30px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  margin: 15px;
+  margin-top: 165px;
+} */
+
+.deck-container {
+  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  padding: 30px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  margin: 15px;
+  margin-top: 165px;
+  padding-bottom: 55px;
+}
+
+.deck-creation {
+  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  padding: 30px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  margin: 15px;
+  margin-top: 165px;
+  padding-bottom: 55px;
+}
+
+.deck {
+  margin: 30px;
+}
+
+.edit-deck {
+  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  padding: 30px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  margin: 15px;
+  margin-top: 165px;
+  padding-bottom: 55px;
 }

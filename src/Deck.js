@@ -52,29 +52,30 @@ export default function Deck({ deleteCard, setDeleteCard }) {
   }
   return (
     <>
-      <div>
+      <div className='edit-deck'>
         <h3> {deckName} </h3>
-      </div>
-      <button onClick={handleEdit}>Edit Deck Name </button>
-      {showButton ? (
-        <form onSubmit={handleSubmit}>
-          <input value={editDeckName} onChange={(e) => setEditDeckName(e.target.value)} />
-          <button> Submit</button>
-        </form>
-      ) : null}
+      
+        <button onClick={handleEdit}>Edit Deck Name </button>
+        {showButton ? (
+          <form onSubmit={handleSubmit}>
+            <input value={editDeckName} onChange={(e) => setEditDeckName(e.target.value)} />
+            <button> Submit</button>
+          </form>
+        ) : null}
 
-      <button onClick={handleClick}>Edit Deck</button>
-      <button onClick={handleDelete}>Delete Deck</button>
-      <div className="card-list">
-        {cards.map(({ name, imageUrl, id }) => (
-          <DraftedCard
-            key={name + id}
-            name={name}
-            imageUrl={imageUrl}
-            id={id}
-            setDeleteCard={setDeleteCard}
-          />
-        ))}
+        <button onClick={handleClick}>Edit Deck</button>
+        <button onClick={handleDelete}>Delete Deck</button>
+        <div className="card-list">
+          {cards.map(({ name, imageUrl, id }) => (
+            <DraftedCard
+              key={name + id}
+              name={name}
+              imageUrl={imageUrl}
+              id={id}
+              setDeleteCard={setDeleteCard}
+            />
+          ))}
+        </div>
       </div>
     </>
   );

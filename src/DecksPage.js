@@ -57,22 +57,27 @@ export default function DecksPage() {
 
   return (
     <>
-      <div>
+      <div className='deck-container'>
         <h3>Create your deck</h3>
-        <form onSubmit={handleDeckSubmit}>
-          <label>Deck name: </label>
-          <input required value={deckName} onChange={(e) => setDeckName(e.target.value)} />
-          <button>Create Deck</button>
-        </form>
-      </div>
-      <h3>Your Current Decks</h3>
-      <div className="deck-list">
-        {isLoading 
-          ? <LoadingSpinner />
-          : userDecks.map(({ deck_name, id }) => (
-            <Decks key={deck_name + id} deck_name={deck_name} id={id} />
-          ))
-        }
+        <div className='deck-list'>
+          
+          <form onSubmit={handleDeckSubmit}>
+            <label>Deck name: </label>
+            <input required value={deckName} onChange={(e) => setDeckName(e.target.value)} />
+            <button>Create Deck</button>
+          </form>
+        </div>
+      
+        <h3>Your Current Decks</h3>
+        <div className="deck-list">
+          
+          {isLoading 
+            ? <LoadingSpinner />
+            : userDecks.map(({ deck_name, id }) => (
+              <Decks key={deck_name + id} deck_name={deck_name} id={id} />
+            ))
+          }
+        </div>
       </div>
     </>
   );
