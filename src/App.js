@@ -1,8 +1,8 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import AuthPage from './AuthPage';
 import React, { useState, useEffect } from 'react';
-import { logout, getUser } from './services/supabase-utils';
+import { getUser } from './services/supabase-utils';
 import Deck from './Deck.js';
 import AboutUs from './AboutUs';
 import DraftPage from './DraftPage';

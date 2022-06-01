@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Card from './Card';
 import Decks from './Decks';
 import { createDeck, getUser, getAllDecksByUser } from './services/supabase-utils';
 import { useHistory } from 'react-router-dom';
@@ -33,7 +32,7 @@ export default function DecksPage() {
     const newDeck = await createDeck(deckName);
     const id = newDeck.data[0].id;
 
-    const localDeckId = localStorage.setItem('currentDeckId', id);
+    localStorage.setItem('currentDeckId', id);
 
     // console.log(newDeck, 3); //eslint-disable-line
     // console.log(id, 'actual ID'); //eslint-disable-line

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getRandomCard } from './services/fetch-utils';
 import { getDraftedCards } from './services/supabase-utils';
 import CardList from './CardList.js';
-import { types, subtypes, sets } from './mtgparams';
+import { types, sets } from './mtgparams';
 import LoadingSpinner from './LoadingSpinner';
 
 export default function DraftPage({ deleteCard, setDeleteCard }) {
@@ -29,7 +29,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
 
       setDrafted(draftedCards);
       setIsLoading(false);
-      
+
     }
     load();
   }, [rerender, deleteCard]); //eslint-disable-line
