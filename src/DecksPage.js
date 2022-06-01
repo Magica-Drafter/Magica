@@ -33,26 +33,10 @@ export default function DecksPage() {
     const id = newDeck.data[0].id;
 
     localStorage.setItem('currentDeckId', id);
-
-    // console.log(newDeck, 3); //eslint-disable-line
-    // console.log(id, 'actual ID'); //eslint-disable-line
-    // console.log(typeof id, 'ID type'); //eslint-disable-line
-
-    // console.log('currentUser', currentUser.id);
-
     setRender(id);
-
     setDeckName('');
-
-
     history.push('/DraftPage');
-    // console.log('newDeck', newDeck);
-    //console.log(deckId, 'deckId'); //eslint-disable-line
   }
-
-  // useEffect(() => {
-  //   console.log(deckId, 'deckId'); //eslint-disable-line
-  // }, [deckId]);
 
   return (
     <>
@@ -66,10 +50,9 @@ export default function DecksPage() {
             <button>Create Deck</button>
           </form>
         </div>
-      
         <h1>Your Current Decks</h1>
+        <p> Click to view or edit a specific deck.</p>
         <div className="deck-list">
-          
           {isLoading 
             ? <LoadingSpinner />
             : userDecks.map(({ deck_name, id }) => (

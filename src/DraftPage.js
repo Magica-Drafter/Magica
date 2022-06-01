@@ -14,7 +14,6 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [set, setSet] = useState('');
   const [colorIdentity, setColorIdentity] = useState('R');
   const [isLoading, setIsLoading] = useState(false);
-  // const [deleteCard, setDeleteCard] = useState();
 
   useEffect(() => {
     async function load() {
@@ -46,34 +45,11 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
     setIsLoading(false);
   }
 
-  // useEffect(() => {
-  //   async function load() {
-  //     const drafted = await getDraftedCards(deckId);
-
-  //     console.log('drafted', drafted);
-
-  //     console.log('deckId', deckId);
-
-  //     setDrafted(drafted);
-  //   }
-  //   load();
-  // }, [deckId]);
-
-  // useEffect(() => {
-  //   async function fetchQuery() {
-  //     const randomCard = await getRandomCard(query);
-  //     setCards(randomCard);
-  //   }
-  //   fetchQuery();
-  //   setQuery();
-  // }, [query]);
-  //eslint-disable-line
-
   return (
     <>
       <div className="draft-dropdowns">
         <div>
-          <label>Sort By Manna Color</label>
+          <label>Sort By Mana Color</label>
           <select value={colorIdentity} onChange={(e) => setColorIdentity(e.target.value)}>
             {
               <>
@@ -123,17 +99,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
         </div>
         <button onClick={handleDraftClick}>Search</button>
       </div>
-
-
       <div className='draft-border'>
-        {/* <button onClick={() => handleClick('|Green|')}>Green</button>
-        <button onClick={() => handleClick('|Black|')}>Black</button>
-        <button onClick={() => handleClick('|Blue|')}>Blue</button>
-        <button onClick={() => handleClick('|White|')}>White</button> */}
-
-        {/* <h1>Choose your cards:</h1> */}
-
-        
         {(cards && !isLoading) ? (
           <CardList
             // deckId={deckId}

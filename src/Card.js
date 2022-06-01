@@ -1,6 +1,5 @@
 import React from 'react';
 import { createCard } from './services/supabase-utils';
-// import { getDraftedCards } from './services/supabase-utils';
 
 export default function Card({ name, imageUrl, setRerender, currentDeck, handleDraftClick }) {
   

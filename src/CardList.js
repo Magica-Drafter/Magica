@@ -1,5 +1,4 @@
 import React from 'react';
-// import { getDraftedCards } from './services/supabase-utils';
 import Card from './Card';
 import DraftedCard from './DraftedCard';
 import { useState, useEffect } from 'react';
@@ -37,21 +36,21 @@ export default function CardList({ cards, drafted, setRerender, currentDeck, set
             />
           ))}
         </div>
-
-        <h1>{deckName} Draft</h1>
-
-        <div className="draft-list">
-          {drafted.map(({ name, imageUrl, id }) => (
-            <DraftedCard
-              key={name + id}
-              name={name}
-              imageUrl={imageUrl}
-              id={id}
-              setDeleteCard={setDeleteCard}
-            // deckId={deckId}
-            />
-          ))}
-        </div>
+        {(drafted.length > 0)
+          ? <div>
+            <h1>{deckName} Draft</h1>
+            <div className="draft-list">
+              {drafted.map(({ name, imageUrl, id }) => (
+                <DraftedCard
+                  key={name + id}
+                  name={name}
+                  imageUrl={imageUrl}
+                  id={id}
+                  setDeleteCard={setDeleteCard} />
+              ))}
+            </div>
+          </div>
+          : null }
       </div>
     </>
   );
