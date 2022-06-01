@@ -95,12 +95,18 @@ body {
 
 img {
   height: 311px;
-  padding: 25px;
 }
 
 .drafted-card{
   position:relative;
   margin: 5px;
+}
+
+.drafted-card:hover {
+  outline: none;
+    border-color: #9ecaed;
+    border-radius: 25px;
+    box-shadow: 0 0 35px #9ecaed;
 }
 
 .drafted-card img {
@@ -109,9 +115,25 @@ img {
 
 .card {
   margin: 5px;
+  
 }
+
+.card:hover {
+  outline: none;
+    border-color: #9ecaed;
+    border-radius: 25px;
+    box-shadow: 0 0 35px #9ecaed;
+  
+}
+
 .card img {
   border-radius: 25px;
+  
+}
+
+.card img:hover {
+  border-radius: 25px;
+  
 }
 
 .drafted-card-button{
@@ -124,6 +146,7 @@ img {
 
 .drafted-card:hover .drafted-card-button{ 
 	display:block;
+  
 }
 
 .header {
@@ -234,6 +257,14 @@ img {
 
 .deck {
   margin: 30px;
+  color: white;
+}
+
+.deck:hover {
+  outline: none;
+  border-color: #9ecaed;
+  border-radius: 25px;
+  box-shadow: 0 0 35px #9ecaed;
 }
 
 .edit-deck {

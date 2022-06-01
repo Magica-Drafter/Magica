@@ -58,7 +58,7 @@ export default function DecksPage() {
   return (
     <>
       <div className='deck-container'>
-        <h3>Create your deck</h3>
+        <h1>Create your deck</h1>
         <div className='deck-list'>
           
           <form onSubmit={handleDeckSubmit}>
@@ -68,7 +68,7 @@ export default function DecksPage() {
           </form>
         </div>
       
-        <h3>Your Current Decks</h3>
+        <h1>Your Current Decks</h1>
         <div className="deck-list">
           
           {isLoading 

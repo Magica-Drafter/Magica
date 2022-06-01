@@ -53,7 +53,7 @@ export default function Deck({ deleteCard, setDeleteCard }) {
   return (
     <>
       <div className='edit-deck'>
-        <h3> {deckName} </h3>
+        <h1> {deckName} </h1>
       
         <button onClick={handleEdit}>Edit Deck Name </button>
         {showButton ? (
