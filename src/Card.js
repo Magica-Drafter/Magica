@@ -2,7 +2,6 @@ import React from 'react';
 import { createCard } from './services/supabase-utils';
 
 export default function Card({ name, imageUrl, setRerender, currentDeck, handleDraftClick }) {
-  
   async function handleClickWrapper() {
     handleClick();
     handleDraftClick();   
@@ -11,7 +10,6 @@ export default function Card({ name, imageUrl, setRerender, currentDeck, handleD
   async function handleClick() {
     const newCard = await createCard({ name: name, imageUrl: imageUrl, deck_id: currentDeck });
     setRerender(newCard);
-
   }
   
 

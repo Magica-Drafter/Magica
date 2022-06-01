@@ -14,45 +14,39 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [set, setSet] = useState('');
   const [colorIdentity, setColorIdentity] = useState('R');
   const [isLoading, setIsLoading] = useState(false);
+  const [draftLoading, setDraftLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
-
       const localDeck = localStorage.getItem('currentDeckId');
-
-      setCurrentDeck(localDeck);
-      
       setIsLoading(true);
-
+      setCurrentDeck(localDeck);
       const draftedCards = await getDraftedCards(localDeck);
-
       setDrafted(draftedCards);
       setIsLoading(false);
-
     }
     load();
   }, [rerender, deleteCard]); //eslint-disable-line
 
 
   async function handleDraftClick() {
-    setIsLoading(true);
+    setDraftLoading(true);
     const randomCards = await getRandomCard(colorIdentity, type, set);
     if (randomCards.length === 0) {
       alert('No results match your search.');
     }
-
     setCards(randomCards);
-    setIsLoading(false);
+    setDraftLoading(false);
   }
 
   return (
-    <>
+    <div>
       <div className="draft-dropdowns">
         <div>
           <label>Sort By Mana Color</label>
           <select value={colorIdentity} onChange={(e) => setColorIdentity(e.target.value)}>
             {
-              <>
+              <div>
                 <option key="red" value='R'>
                 Red
                 </option>
@@ -71,7 +65,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
                 <option key="colorless" value=''>
                 No Color Specified
                 </option>
-              </>
+              </div>
             }
           </select>
         </div>
@@ -100,7 +94,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
         <button onClick={handleDraftClick}>Search</button>
       </div>
       <div className='draft-border'>
-        {(cards && !isLoading) ? (
+        {(cards && !isLoading && !draftLoading) ? (
           <CardList
             cards={cards}
             drafted={drafted}
@@ -111,7 +105,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           />
         ) : <LoadingSpinner />}
       </div>
-    </>
+    </div>
   );
 }
 
