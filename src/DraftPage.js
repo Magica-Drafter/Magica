@@ -22,10 +22,14 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
       const localDeck = localStorage.getItem('currentDeckId');
 
       setCurrentDeck(localDeck);
+      
+      setIsLoading(true);
 
       const draftedCards = await getDraftedCards(localDeck);
 
       setDrafted(draftedCards);
+      setIsLoading(false);
+      
     }
     load();
   }, [rerender, deleteCard]); //eslint-disable-line

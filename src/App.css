@@ -296,3 +296,29 @@ img {
   margin: 100px;
 }
 
+.loading {
+  text-align: center;
+}
+
+/* body {
+  background-color: #282c34;
+} */
+
+.loading {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .loading {
+    animation: spinner infinite 2s linear;
+  }
+}
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
