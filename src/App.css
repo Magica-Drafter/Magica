@@ -73,3 +73,21 @@
 img {
   height: 311px;
 }
+
+.drafted-card{
+  position:relative;
+	background: #f90;
+  margin: 5px;
+}
+
+.drafted-card-button{
+  position: absolute;
+  z-index: 2;
+  top: 44px;
+  display: none;
+  left: 59px;
+}
+
+.drafted-card:hover .drafted-card-button{ 
+	display:block;
+}
