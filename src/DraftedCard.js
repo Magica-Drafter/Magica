@@ -12,8 +12,10 @@ export default function DraftedCard({ imageUrl, id, setDeleteCard }) {
   }
 
   return (
-    <div className="deck" onClick={handleClick}>
+    <div className="drafted-card">
       <img src={imageUrl} />
+      <button onClick={handleClick} type="button" className='drafted-card-button'>Delete</button>
     </div>
+    
   );
 }

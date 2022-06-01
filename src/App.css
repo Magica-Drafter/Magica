@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -26,6 +27,15 @@
 
 .App-link {
   color: #61dafb;
+}
+
+body {
+  height: 100%;
+  background-image: url('./images/background.jpg');
+  color: white;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 @keyframes App-logo-spin {
@@ -72,4 +82,22 @@
 
 img {
   height: 311px;
+}
+
+.drafted-card{
+  position:relative;
+	background: #f90;
+  margin: 5px;
+}
+
+.drafted-card-button{
+  position: absolute;
+  z-index: 2;
+  top: 44px;
+  display: none;
+  left: 59px;
+}
+
+.drafted-card:hover .drafted-card-button{ 
+	display:block;
 }

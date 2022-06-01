@@ -4,6 +4,7 @@ import AuthPage from './AuthPage';
 import React, { useState, useEffect } from 'react';
 import { logout, getUser } from './services/supabase-utils';
 import Deck from './Deck.js';
+import AboutUs from './AboutUs';
 import DraftPage from './DraftPage';
 import DecksPage from './DecksPage';
 
@@ -25,7 +26,9 @@ function App() {
           <li>
             <Link to="/DecksPage">Decks</Link>
           </li>
-
+          <li>
+            <Link to="/AboutUs">About Us</Link>
+          </li>
           <button onClick={logout}>Logout</button>
         </ul>
       </nav>
@@ -53,6 +56,13 @@ function App() {
               <Deck deleteCard={deleteCard} setDeleteCard={setDeleteCard} />
             ) : (
               <Redirect to="/" />
+            )}
+          </Route>
+          <Route exact path="/AboutUs">
+            {currentUser ? (
+              <AboutUs/>
+            ) : (
+              <AuthPage setCurrentUser={setCurrentUser} />
             )}
           </Route>
         </Switch>
