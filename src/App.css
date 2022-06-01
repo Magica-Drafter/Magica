@@ -105,20 +105,24 @@ img {
 }
 
 .header {
-  position: absolute;
+  /* position: absolute; */
+  display: flex;
   top: 0px;
   margin: 0;
   height: 10vh;
   width: 100%;
   background-color: black;
+
 }
 
 .navLinks {
     display: flex;
     justify-content: center;
+    width: 80%;
     align-items: center;
     margin: 10px;
     text-decoration: none;
+    /* margin-left: 800px; */
 
 }
 
@@ -127,13 +131,14 @@ img {
 }
 
 .logo {
-    width: 300px;
+    
+    width: 150px;
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-left: 10px;
-  color: white;
+    color: white;
 }
+
 .home-page {
   margin: 200px;
   align-items: center;
