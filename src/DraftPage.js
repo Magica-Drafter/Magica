@@ -102,7 +102,6 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
       <div className='draft-border'>
         {(cards && !isLoading) ? (
           <CardList
-            // deckId={deckId}
             cards={cards}
             drafted={drafted}
             currentDeck={currentDeck}
