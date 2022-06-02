@@ -33,7 +33,6 @@ body {
   background-repeat: no-repeat;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background.jpg');
   color: white;
-  -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;
   padding: 0;
@@ -205,12 +204,16 @@ img {
   color: white;
   font-weight: bold;
   margin: 15px;
-  margin-top: 165px;
+  margin-top: 15px;
 }
 
-.login-form input {
-  align-items: center;
+input, select, textarea  {
+  color: black;
 }
+/* .login-form input[type=text] {
+  align-items: center;
+  text-decoration: black;
+} */
 
 .footer {
   padding-top: 15px;
@@ -303,6 +306,7 @@ img {
     animation: spinner infinite 2s linear;
   }
 }
+
 @keyframes spinner {
   from {
     transform: rotate(0deg);
@@ -310,4 +314,40 @@ img {
   to {
     transform: rotate(360deg);
   }
+}
+
+.navLinks a {
+  color: goldenrod;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navLinks a:visited {
+  color: purple;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+button {
+	box-shadow:inset 0px 0px 0px 0px #9285f2;
+	background:linear-gradient(to bottom, #0d1fe3 5%, #170e99 100%);
+	background-color:#0d1fe3;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:10px 28px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #240cad;
+}
+button:hover {
+	background:linear-gradient(to bottom, #170e99 5%, #0d1fe3 100%);
+	background-color:#170e99;
+}
+button:active {
+	position:relative;
+	top:1px;
 }
