@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <div className='header'>
       
-      <div className='logo'>Logo</div>
+      <img src='./Magica.png' className='logo'/>
       <div className='navLinks'>
         <Link to="/DecksPage" className='Link'>Decks</Link>
         <Link to="/AboutUs" className='Link'>About Us</Link>

@@ -9,68 +9,38 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [cards, setCards] = useState([]);
   const [drafted, setDrafted] = useState([]);
   const [currentDeck, setCurrentDeck] = useState();
-  const [rerender, setRerender] = useState();
+  const [rerender, setRerender] = useState(false);
   const [type, setType] = useState('');
   const [set, setSet] = useState('');
   const [colorIdentity, setColorIdentity] = useState('R');
   const [isLoading, setIsLoading] = useState(false);
-  // const [deleteCard, setDeleteCard] = useState();
+  const [draftLoading, setDraftLoading] = useState(false);
 
   useEffect(() => {
     async function load() {
-
       const localDeck = localStorage.getItem('currentDeckId');
-
-      setCurrentDeck(localDeck);
-      
       setIsLoading(true);
-
+      setCurrentDeck(localDeck);
       const draftedCards = await getDraftedCards(localDeck);
-
       setDrafted(draftedCards);
       setIsLoading(false);
-
     }
     load();
   }, [rerender, deleteCard]); //eslint-disable-line
 
 
   async function handleDraftClick() {
-    setIsLoading(true);
+    setDraftLoading(true);
     const randomCards = await getRandomCard(colorIdentity, type, set);
     if (randomCards.length === 0) {
       alert('No results match your search.');
     }
-
     setCards(randomCards);
-    setIsLoading(false);
+    setDraftLoading(false);
   }
 
-  // useEffect(() => {
-  //   async function load() {
-  //     const drafted = await getDraftedCards(deckId);
-
-  //     console.log('drafted', drafted);
-
-  //     console.log('deckId', deckId);
-
-  //     setDrafted(drafted);
-  //   }
-  //   load();
-  // }, [deckId]);
-
-  // useEffect(() => {
-  //   async function fetchQuery() {
-  //     const randomCard = await getRandomCard(query);
-  //     setCards(randomCard);
-  //   }
-  //   fetchQuery();
-  //   setQuery();
-  // }, [query]);
-  //eslint-disable-line
-
   return (
-    <>
+    <div>
       <div className="draft-dropdowns">
         <div>
           <label>Sort By Mana Color</label>
@@ -123,20 +93,9 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
         </div>
         <button onClick={handleDraftClick}>Search</button>
       </div>
-
-
       <div className='draft-border'>
-        {/* <button onClick={() => handleClick('|Green|')}>Green</button>
-        <button onClick={() => handleClick('|Black|')}>Black</button>
-        <button onClick={() => handleClick('|Blue|')}>Blue</button>
-        <button onClick={() => handleClick('|White|')}>White</button> */}
-
-        {/* <h1>Choose your cards:</h1> */}
-
-        
-        {(cards && !isLoading) ? (
+        {(cards && !isLoading && !draftLoading) ? (
           <CardList
-            // deckId={deckId}
             cards={cards}
             drafted={drafted}
             currentDeck={currentDeck}
@@ -146,7 +105,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           />
         ) : <LoadingSpinner />}
       </div>
-    </>
+    </div>
   );
 }
 
