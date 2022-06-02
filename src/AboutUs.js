@@ -11,7 +11,7 @@ export default function AboutUs() {
           <img className='aboutImg' src='./thomasCard.png'/>
           <p>Thomas is a California-(soon Texas-) based software developer in progress.<br/>
     He used to DM 3.5 and 5e, but has sworn to never do so again (except if he gets to use Demogorgon).<br/>
-    In World of Warcraft, his Fury Warrior is dead last on the charts every pull, despite actively raiding every tier since Gul&apos;dan, he has not a single Cutting Edge.<br/>
+    In World of Warcraft, his Fury Warrior is dead last on the charts every pull. Dgespite actively raiding every tier since Gul&apos;dan, he has not a single Cutting Edge.<br/>
     He hit legend in Hearthstone once.<br/>
     Favorite Set: Dominaria</p>
         </div>
