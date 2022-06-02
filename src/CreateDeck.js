@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DecksList from './DecksList';
+import Deck from './Deck';
 import { createDeck, getUser, getAllDecksByUser } from './services/supabase-utils';
 import { useHistory } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner';
@@ -58,7 +58,7 @@ export default function CreateDeck() {
           ) : (
             // If loading show loading spinner, otherwise map over user decks for display.
             userDecks.map(({ deck_name, id }) => (
-              <DecksList key={deck_name + id} deck_name={deck_name} id={id} />
+              <Deck key={deck_name + id} deck_name={deck_name} id={id} />
             ))
           )}
         </div>

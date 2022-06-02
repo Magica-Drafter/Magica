@@ -4,7 +4,6 @@ import { deleteDraftedCard } from './services/supabase-utils';
 export default function DraftedCard({ imageUrl, id, setDeleteCard }) {
   async function handleDeleteCard() {
     const deletedCard = await deleteDraftedCard(id);
-
     setDeleteCard(deletedCard);
   }
 

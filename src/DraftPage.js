@@ -75,6 +75,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
         </div>
         <div>
           {/* Types and Sets dropdowns are generated from the file mtgparams.js which are used to filter the cards that are returned on search */}
+          {/* The option chosen here is given to the fetch to tell it what kind of cards to give us */}
           <label>Filter By Type</label>
           <select onChange={(e) => setType(e.target.value)}>
             <option></option>
