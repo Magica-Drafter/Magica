@@ -35,7 +35,7 @@ export default function AuthPage({ setCurrentUser }) {
   return (
     <div className="home-page">
       <div className='login-form'>
-        <form onSubmit={handleSignUp}>
+        <form className="form-input" onSubmit={handleSignUp}>
           <h2>Sign Up</h2>
           <label>
             <p>Email</p>
@@ -49,7 +49,7 @@ export default function AuthPage({ setCurrentUser }) {
         </form>
       </div>
       <div className='login-form'>
-        <form onSubmit={handleSignIn}>
+        <form className="form-input" onSubmit={handleSignIn}>
           <h2>Sign In</h2>
           <label>
             <p>Email</p>
