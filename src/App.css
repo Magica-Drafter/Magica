@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  
 }
 
 .App-logo {
@@ -162,10 +161,9 @@ img {
   display: flex;
   top: 0px;
   margin: 0;
-  height: 10vh;
+  height: 15vh;
   width: 100%;
   background-color: black;
-
 }
 
 .navLinks {
@@ -182,7 +180,10 @@ img {
 }
 
 .logo {
-    width: 150px;
+    width: 125px;
+    height: 60px;
+    margin-left: 15px;
+    margin-top: 15px;
     align-items: center;
     display: flex;
     justify-content: center;
