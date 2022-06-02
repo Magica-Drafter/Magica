@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Decks from './Decks';
+import DecksList from './DecksList';
 import { createDeck, getUser, getAllDecksByUser } from './services/supabase-utils';
 import { useHistory } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner';
 
-export default function DecksPage() {
+export default function CreateDeck() {
   const [deckName, setDeckName] = useState('');
   const [userDecks, setUserDecks] = useState([]);
   const [render, setRender] = useState([]);
@@ -40,10 +40,9 @@ export default function DecksPage() {
 
   return (
     <>
-      <div className='deck-container'>
+      <div className="deck-container">
         <h1>Create your deck</h1>
-        <div className='deck-list'>
-          
+        <div className="deck-list">
           <form onSubmit={handleDeckSubmit}>
             <label>Deck name: </label>
             <input required value={deckName} onChange={(e) => setDeckName(e.target.value)} />
@@ -53,12 +52,13 @@ export default function DecksPage() {
         <h1>Your Current Decks</h1>
         <p> Click to view or edit a specific deck.</p>
         <div className="deck-list">
-          {isLoading 
-            ? <LoadingSpinner />
-            : userDecks.map(({ deck_name, id }) => (
-              <Decks key={deck_name + id} deck_name={deck_name} id={id} />
+          {isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            userDecks.map(({ deck_name, id }) => (
+              <DecksList key={deck_name + id} deck_name={deck_name} id={id} />
             ))
-          }
+          )}
         </div>
       </div>
     </>
