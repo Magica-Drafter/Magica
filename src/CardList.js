@@ -10,7 +10,7 @@ export default function CardList({
   setClick,
   currentDeck,
   setDeleteCard,
-  handleDraftClick,
+  handleSearchClick,
 }) {
   const [deckName, setDeckName] = useState();
 
@@ -34,7 +34,7 @@ export default function CardList({
               imageUrl={imageUrl}
               setClick={setClick}
               currentDeck={currentDeck}
-              handleDraftClick={handleDraftClick}
+              handleSearchClick={handleSearchClick}
             />
           ))}
         </div>

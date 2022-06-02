@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import AuthPage from './AuthPage';
 import React, { useState, useEffect } from 'react';
 import { getUser } from './services/supabase-utils';
-import Deck from './Deck.js';
+import DeckDetail from './DeckDetail.js';
 import AboutUs from './AboutUs';
 import DraftPage from './DraftPage';
 import CreateDeck from './CreateDeck';
@@ -43,7 +43,7 @@ function App() {
           </Route>
           <Route exact path="/deck/:id">
             {currentUser ? (
-              <Deck deleteCard={deleteCard} setDeleteCard={setDeleteCard} />
+              <DeckDetail deleteCard={deleteCard} setDeleteCard={setDeleteCard} />
             ) : (
               <Redirect to="/" />
             )}

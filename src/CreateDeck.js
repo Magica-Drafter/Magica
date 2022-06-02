@@ -19,8 +19,6 @@ export default function CreateDeck() {
       setIsLoading(true);
       const returnedDecks = await getAllDecksByUser(userId);
 
-      // console.log('returnedDecks', returnedDecks);
-
       setUserDecks(returnedDecks);
       setIsLoading(false);
     }
@@ -35,7 +33,7 @@ export default function CreateDeck() {
     localStorage.setItem('currentDeckId', id);
     setRender(id);
     setDeckName('');
-    history.push('/DraftPage');
+    history.push('/draft-page');
   }
 
   return (

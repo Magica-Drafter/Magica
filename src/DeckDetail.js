@@ -28,24 +28,24 @@ export default function Deck({ deleteCard, setDeleteCard }) {
     load();
   }, [params.id, deleteCard, deckName]);
 
-  function handleEdit() {
+  function handleRename() {
     setShowButton(true);
   }
 
-  async function handleSubmit(e) {
+  async function handleRenameSubmit(e) {
     e.preventDefault();
     await changeDeckName(params.id, editDeckName);
     setDeckName(editDeckName);
     setShowButton(false);
   }
 
-  function handleClick() {
+  function handleRedraftDeck() {
     localStorage.setItem('currentDeckId', params.id);
 
     history.push('/draft-page');
   }
 
-  async function handleDelete() {
+  async function handleDeleteDeck() {
     await deleteDeck(params.id);
 
     history.push('/create-deck');
@@ -55,16 +55,16 @@ export default function Deck({ deleteCard, setDeleteCard }) {
       <div className="edit-deck">
         <h1> {deckName} </h1>
 
-        <button onClick={handleEdit}>Edit Deck Name </button>
+        <button onClick={handleRename}>Rename Deck </button>
         {showButton ? (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleRenameSubmit}>
             <input value={editDeckName} onChange={(e) => setEditDeckName(e.target.value)} />
             <button> Submit</button>
           </form>
         ) : null}
 
-        <button onClick={handleClick}>Edit Deck</button>
-        <button onClick={handleDelete}>Delete Deck</button>
+        <button onClick={handleRedraftDeck}>Redraft Deck</button>
+        <button onClick={handleDeleteDeck}>Delete Deck</button>
         <div className="card-list">
           {cards.map(({ name, imageUrl, id }) => (
             <DraftedCard
