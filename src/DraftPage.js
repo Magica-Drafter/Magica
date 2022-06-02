@@ -9,7 +9,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [cards, setCards] = useState([]);
   const [drafted, setDrafted] = useState([]);
   const [currentDeck, setCurrentDeck] = useState();
-  const [rerender, setRerender] = useState(false);
+  const [click, setClick] = useState();
   const [type, setType] = useState('');
   const [set, setSet] = useState('');
   const [colorIdentity, setColorIdentity] = useState('R');
@@ -26,10 +26,9 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
       setIsLoading(false);
     }
     load();
-  }, [rerender, deleteCard]); //eslint-disable-line
+  }, [click, deleteCard]); //eslint-disable-line
 
-
-  async function handleDraftClick() {
+  async function handleSearchClick() {
     setDraftLoading(true);
     const randomCards = await getRandomCard(colorIdentity, type, set);
     if (randomCards.length === 0) {
@@ -47,23 +46,23 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           <select value={colorIdentity} onChange={(e) => setColorIdentity(e.target.value)}>
             {
               <>
-                <option key="red" value='R'>
-                Red
+                <option key="red" value="R">
+                  Red
                 </option>
-                <option key="green" value='G'>
-                Green
+                <option key="green" value="G">
+                  Green
                 </option>
-                <option key="blue" value='U'>
-                Blue
+                <option key="blue" value="U">
+                  Blue
                 </option>
-                <option key="white" value='W'>
-                White
+                <option key="white" value="W">
+                  White
                 </option>
-                <option key="black" value='B'>
-                Black
+                <option key="black" value="B">
+                  Black
                 </option>
-                <option key="colorless" value=''>
-                No Color Specified
+                <option key="colorless" value="">
+                  No Color Specified
                 </option>
               </>
             }
@@ -91,21 +90,22 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
             ))}
           </select>
         </div>
-        <button onClick={handleDraftClick}>Search</button>
+        <button onClick={handleSearchClick}>Search</button>
       </div>
-      <div className='draft-border'>
-        {(cards && !isLoading && !draftLoading) ? (
+      <div className="draft-border">
+        {cards && !isLoading && !draftLoading ? (
           <CardList
             cards={cards}
             drafted={drafted}
             currentDeck={currentDeck}
-            setRerender={setRerender}
+            setClick={setClick}
             setDeleteCard={setDeleteCard}
-            handleDraftClick={handleDraftClick}
+            handleSearchClick={handleSearchClick}
           />
-        ) : <LoadingSpinner />}
+        ) : (
+          <LoadingSpinner />
+        )}
       </div>
     </div>
   );
 }
-

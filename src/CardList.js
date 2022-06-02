@@ -4,7 +4,14 @@ import DraftedCard from './DraftedCard';
 import { useState, useEffect } from 'react';
 import { getDeckName } from './services/supabase-utils';
 
-export default function CardList({ cards, drafted, setRerender, currentDeck, setDeleteCard, handleDraftClick }) {
+export default function CardList({
+  cards,
+  drafted,
+  setClick,
+  currentDeck,
+  setDeleteCard,
+  handleSearchClick,
+}) {
   const [deckName, setDeckName] = useState();
 
   useEffect(() => {
@@ -13,13 +20,11 @@ export default function CardList({ cards, drafted, setRerender, currentDeck, set
       setDeckName(await getDeckName(localDeckId));
     }
     load();
-  }
-  , []);
-
+  }, []);
 
   return (
     <span>
-      <div className='draft-container'>
+      <div className="draft-container">
         <h1>Choose Cards</h1>
         <div className="card-list">
           {cards.map(({ name, imageUrl, multiverseid }) => (
@@ -27,14 +32,14 @@ export default function CardList({ cards, drafted, setRerender, currentDeck, set
               key={name + multiverseid}
               name={name}
               imageUrl={imageUrl}
-              setRerender={setRerender}
+              setClick={setClick}
               currentDeck={currentDeck}
-              handleDraftClick={handleDraftClick}
+              handleSearchClick={handleSearchClick}
             />
           ))}
         </div>
-        {(drafted.length > 0)
-          ? <div>
+        {drafted.length > 0 ? (
+          <div>
             <h1>{deckName} Draft</h1>
             <div className="draft-list">
               {drafted.map(({ name, imageUrl, id }) => (
@@ -43,11 +48,12 @@ export default function CardList({ cards, drafted, setRerender, currentDeck, set
                   name={name}
                   imageUrl={imageUrl}
                   id={id}
-                  setDeleteCard={setDeleteCard} />
+                  setDeleteCard={setDeleteCard}
+                />
               ))}
             </div>
           </div>
-          : null }
+        ) : null}
       </div>
     </span>
   );
