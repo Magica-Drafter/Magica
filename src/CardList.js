@@ -27,6 +27,7 @@ export default function CardList({
       <div className="draft-container">
         {/* CardList is all cards on the screen, split into the top "search" part and the bottom "drafted" part */}
         <h1>Choose Cards</h1>
+        <h3>Current deck size: {drafted.length}</h3>
         <div className="card-list">
           {/* Each card fetched from the API is a Card component with an on click function to draft it */}
           {cards.map(({ name, imageUrl, multiverseid }) => (

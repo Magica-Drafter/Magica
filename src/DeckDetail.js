@@ -69,7 +69,6 @@ export default function Deck({ deleteCard, setDeleteCard }) {
 
       <button onClick={handleRedraftDeck}>Redraft Deck</button>
       <button onClick={handleDeleteDeck}>Delete Deck</button>
-      
       <div className="card-list">
         {/* Map over and display all the cards that are in the deck already in supabase */}
         {cards.map(({ name, imageUrl, id }) => (
