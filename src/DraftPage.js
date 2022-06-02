@@ -12,7 +12,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [click, setClick] = useState();
   const [type, setType] = useState('');
   const [set, setSet] = useState('');
-  const [colorIdentity, setColorIdentity] = useState('R');
+  const [colorIdentity, setColorIdentity] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [draftLoading, setDraftLoading] = useState(false);
 
@@ -42,7 +42,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
     <div>
       <div className="draft-dropdowns">
         <div>
-          <label>Sort By Mana Color</label>
+          <label>Filter By Mana Color</label>
           <select value={colorIdentity} onChange={(e) => setColorIdentity(e.target.value)}>
             {
               <>
@@ -69,7 +69,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           </select>
         </div>
         <div>
-          <label>Sort By Type</label>
+          <label>Filter By Type</label>
           <select onChange={(e) => setType(e.target.value)}>
             <option></option>
             {types.map((item) => (
@@ -80,7 +80,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           </select>
         </div>
         <div>
-          <label>Sort By Set</label>
+          <label>Filter By Set</label>
           <select onChange={(e) => setSet(e.target.value)}>
             <option></option>
             {sets.map((item) => (
