@@ -73,7 +73,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
     <>
       <div className="draft-dropdowns">
         <div>
-          <label>Sort By Manna Color</label>
+          <label>Sort By Mana Color</label>
           <select value={colorIdentity} onChange={(e) => setColorIdentity(e.target.value)}>
             {
               <>
