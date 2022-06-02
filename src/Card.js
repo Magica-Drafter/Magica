@@ -1,17 +1,16 @@
 import React from 'react';
 import { createCard } from './services/supabase-utils';
 
-export default function Card({ name, imageUrl, setRerender, currentDeck, handleDraftClick }) {
+export default function Card({ name, imageUrl, setClick, currentDeck, handleDraftClick }) {
   async function handleClickWrapper() {
     handleClick();
-    handleDraftClick();   
+    handleDraftClick();
   }
 
   async function handleClick() {
-    await createCard({ name: name, imageUrl: imageUrl, deck_id: currentDeck });
-    setRerender(true);
+    const newClick = await createCard({ name: name, imageUrl: imageUrl, deck_id: currentDeck });
+    setClick(newClick);
   }
-  
 
   return (
     <div className="card" onClick={handleClickWrapper}>
