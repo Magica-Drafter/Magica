@@ -4,7 +4,7 @@ import AuthPage from './AuthPage';
 import React, { useState, useEffect } from 'react';
 import { getUser } from './services/supabase-utils';
 import DeckDetail from './DeckDetail.js';
-import AboutUs from './AboutUs';
+import MeetTheMakers from './MeetTheMakers';
 import DraftPage from './DraftPage';
 import CreateDeck from './CreateDeck';
 import Header from './Header';
@@ -48,8 +48,8 @@ function App() {
               <Redirect to="/" />
             )}
           </Route>
-          <Route exact path="/about-us">
-            {currentUser ? <AboutUs /> : <AuthPage setCurrentUser={setCurrentUser} />}
+          <Route exact path="/meet-the-makers">
+            <MeetTheMakers /> 
           </Route>
         </Switch>
       </div>

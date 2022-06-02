@@ -92,7 +92,7 @@ body {
 .about-section {
   font-size: 18px;
   width: 20%;
-  height: 600px;
+  height: 800px;
   align-items: center;
   justify-content: center;
   background: linear-gradient(
@@ -105,7 +105,7 @@ body {
   border-radius: 25px;
 }
 
-img .aboutImg {
+.aboutImg img {
   width: 100px;
   height: 250px;
   padding: 30px;
@@ -114,6 +114,10 @@ img .aboutImg {
 
 img {
   height: 311px;
+}
+
+.aboutImg {
+  border-radius: 25px;
 }
 
 .drafted-card {
