@@ -34,6 +34,7 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('./images/background.jpg');
   background-repeat: no-repeat;
+  background-size: cover;
   color: white;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 0.5px;
