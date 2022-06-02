@@ -12,6 +12,7 @@ import Footer from './Footer';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
+  // The deleteCard state is passed to DraftPage and DeckDetail components in order to ultimately set deleteCard when the handleDeleteCard function is called.
   const [deleteCard, setDeleteCard] = useState();
 
   useEffect(() => {
@@ -49,7 +50,7 @@ function App() {
             )}
           </Route>
           <Route exact path="/meet-the-makers">
-            <MeetTheMakers /> 
+            <MeetTheMakers />
           </Route>
         </Switch>
       </div>

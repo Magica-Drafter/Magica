@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getRandomCard } from './services/fetch-utils';
+import { getRandomCards } from './services/fetch-utils';
 import { getDraftedCards } from './services/supabase-utils';
 import CardList from './CardList.js';
 import { types, sets } from './mtgparams';
@@ -18,19 +18,24 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
 
   useEffect(() => {
     async function load() {
+      // Here we retrive currentDeckId from local storage to set currentDeck
       const localDeck = localStorage.getItem('currentDeckId');
       setIsLoading(true);
       setCurrentDeck(localDeck);
+      // Here we fetch draftedCards from supabase based on deck ID.
       const draftedCards = await getDraftedCards(localDeck);
+      // Here we set drafted cards so that it can be mapped over later.
       setDrafted(draftedCards);
       setIsLoading(false);
     }
     load();
+    // Here we set re-render to be based on cards getting added or removed from deck.
   }, [click, deleteCard]); //eslint-disable-line
-
+  // This function is called after user selects inputs and presses search
   async function handleSearchClick() {
     setDraftLoading(true);
-    const randomCards = await getRandomCard(colorIdentity, type, set);
+    // Here we fetch 15 random cards from api based on user input for colorIdentity, type, set
+    const randomCards = await getRandomCards(colorIdentity, type, set);
     if (randomCards.length === 0) {
       alert('No results match your search.');
     }
@@ -69,6 +74,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           </select>
         </div>
         <div>
+          {/* Types and Sets dropdowns are generated from the file mtgparams.js which are used to filter the cards that are returned on search */}
           <label>Filter By Type</label>
           <select onChange={(e) => setType(e.target.value)}>
             <option></option>
@@ -93,6 +99,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
         <button onClick={handleSearchClick}>Search</button>
       </div>
       <div className="draft-border">
+        {/* If cards are present and both loading statuses are finished we display CardList Component. */}
         {cards && !isLoading && !draftLoading ? (
           <CardList
             cards={cards}
