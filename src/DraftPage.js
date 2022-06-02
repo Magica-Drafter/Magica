@@ -9,7 +9,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
   const [cards, setCards] = useState([]);
   const [drafted, setDrafted] = useState([]);
   const [currentDeck, setCurrentDeck] = useState();
-  const [rerender, setRerender] = useState();
+  const [rerender, setRerender] = useState(false);
   const [type, setType] = useState('');
   const [set, setSet] = useState('');
   const [colorIdentity, setColorIdentity] = useState('R');
@@ -46,7 +46,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           <label>Sort By Mana Color</label>
           <select value={colorIdentity} onChange={(e) => setColorIdentity(e.target.value)}>
             {
-              <div>
+              <>
                 <option key="red" value='R'>
                 Red
                 </option>
@@ -65,7 +65,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
                 <option key="colorless" value=''>
                 No Color Specified
                 </option>
-              </div>
+              </>
             }
           </select>
         </div>

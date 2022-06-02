@@ -74,8 +74,29 @@ body {
   padding: 20px;
 }
 
+.about-us {
+  margin-bottom: 80px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.about-us-top{
+  display: flex;
+  justify-content: center;
+}
+
 .about-section{
-  font-size: 20px;
+  font-size: 18px;
+  width: 20%;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  padding: 30px;
+  border-radius: 25px;
 }
 
 img .aboutImg {
@@ -138,7 +159,6 @@ img {
 }
 
 .header {
-  /* position: absolute; */
   display: flex;
   top: 0px;
   margin: 0;
