@@ -21,7 +21,7 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Header currentUser={currentUser} />
       <div className="App">
         <Switch>
           <Route exact path="/">
