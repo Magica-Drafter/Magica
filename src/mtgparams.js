@@ -13,7 +13,6 @@ export const types = [
   'Tribal',
   'Vanguard',
 ];
-export const subtypes = ['Advisor', 'Ajani', 'Alara', 'Ally', 'Angel', 'Antelope', 'Ape', 'Arcane'];
 
 export const sets = [
   'Limited Edition Alpha',
@@ -71,7 +70,7 @@ export const sets = [
   'Champions of Kamigawa',
   'Betrayers of Kamigawa',
   'Saviors of Kamigawa',
-  'Racnica: City of Guilds',
+  'Ravcnica: City of Guilds',
   'Guildpact',
   'Dissension',
   'Coldsnap',
@@ -121,4 +120,13 @@ export const sets = [
   'Theros Beyond Death',
   'Ikoria: Lair of Behemoths',
   'Zendikar Rising',
+  'Kaldheim',
+  'Strixhaven: School of Mages',
+  'Adventures in the Forgotten Realms',
+  'Innistrad: Midnight Hunt',
+  'Innistrad: Crimson Vow',
+  'Kamigawa: Neon Dynasty',
+  'Streets of New Capenna',
+  'Modern Horizons',
+  'Modern Horizons 2',
 ];
