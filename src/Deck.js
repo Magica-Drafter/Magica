@@ -42,19 +42,19 @@ export default function Deck({ deleteCard, setDeleteCard }) {
   function handleClick() {
     localStorage.setItem('currentDeckId', params.id);
 
-    history.push('/DraftPage');
+    history.push('/draft-page');
   }
 
   async function handleDelete() {
     await deleteDeck(params.id);
 
-    history.push('/DecksPage');
+    history.push('/create-deck');
   }
   return (
     <>
-      <div className='edit-deck'>
+      <div className="edit-deck">
         <h1> {deckName} </h1>
-      
+
         <button onClick={handleEdit}>Edit Deck Name </button>
         {showButton ? (
           <form onSubmit={handleSubmit}>
