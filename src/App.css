@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  
 }
 
 .App-logo {
@@ -35,7 +34,7 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background.jpg');
   color: white;
   -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;
   padding: 0;
   margin: 0;
@@ -74,24 +73,37 @@ body {
   padding: 20px;
 }
 
-/* .choose-cards {
+.about-us {
+  margin-bottom: 80px;
+  margin-top: 10px;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
 
-  margin-bottom: 15px;
-} */
-/* .deck {
+.about-us-top{
   display: flex;
   justify-content: center;
-} */
-/* .header-text {
-  display: flex;
-  flex-direction: column;
-} */
-/* h3 {
-  display: flex;
-  flex-direction: column;
-} */
+}
+
+.about-section{
+  font-size: 18px;
+  width: 20%;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  padding: 30px;
+  border-radius: 25px;
+}
+
+img .aboutImg {
+  width: 100px;
+  height: 250px;
+  padding: 30px;
+  border-radius: 25px;
+}
 
 img {
   height: 311px;
@@ -115,25 +127,21 @@ img {
 
 .card {
   margin: 5px;
-  
 }
 
 .card:hover {
   outline: none;
-    border-color: #9ecaed;
-    border-radius: 25px;
-    box-shadow: 0 0 35px #9ecaed;
-  
+  border-color: #9ecaed;
+  border-radius: 25px;
+  box-shadow: 0 0 35px #9ecaed;
 }
 
 .card img {
   border-radius: 25px;
-  
 }
 
 .card img:hover {
   border-radius: 25px;
-  
 }
 
 .drafted-card-button{
@@ -150,14 +158,12 @@ img {
 }
 
 .header {
-  /* position: absolute; */
   display: flex;
   top: 0px;
   margin: 0;
-  height: 10vh;
+  height: 15vh;
   width: 100%;
   background-color: black;
-
 }
 
 .navLinks {
@@ -167,8 +173,6 @@ img {
     align-items: center;
     margin: 10px;
     text-decoration: none;
-    /* margin-left: 800px; */
-
 }
 
 .Link {
@@ -176,8 +180,10 @@ img {
 }
 
 .logo {
-    
-    width: 150px;
+    width: 125px;
+    height: 60px;
+    margin-left: 15px;
+    margin-top: 15px;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -220,18 +226,6 @@ img {
   color: white;
   font-weight: bold;
 }
-
-/* .deck-list {
-  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
-  padding: 30px;
-  border-radius: 25px;
-  color: white;
-  font-weight: bold;
-  margin: 15px;
-  margin-top: 165px;
-} */
-
-
 
 .deck-container {
   background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
@@ -285,7 +279,6 @@ img {
   margin: 10px;
   color: white;
   font-weight: bold;
-
 }
 
 .draft-dropdowns select {
@@ -299,10 +292,6 @@ img {
 .loading {
   text-align: center;
 }
-
-/* body {
-  background-color: #282c34;
-} */
 
 .loading {
   height: 40vmin;

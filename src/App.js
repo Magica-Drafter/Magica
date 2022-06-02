@@ -14,8 +14,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [deleteCard, setDeleteCard] = useState();
 
-  // const [deckId, setDeckId] = useState();
-  // const [drafted, setDrafted] = useState();
   useEffect(() => {
     const user = getUser();
     setCurrentUser(user);
