@@ -30,8 +30,11 @@
 
 body {
   height: 100%;
+  /* background-repeat: no-repeat; */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('./images/background.jpg');
   background-repeat: no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background.jpg');
+  background-size: cover;
   color: white;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 0.5px;
@@ -82,18 +85,23 @@ body {
   flex-direction: row;
 }
 
-.about-us-top{
+.about-us-top {
   display: flex;
   justify-content: center;
 }
 
-.about-section{
+.about-section {
   font-size: 18px;
   width: 20%;
   height: 600px;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8239670868347339) 100%,
+    rgba(159, 159, 159, 0.5018382352941176) 100%,
+    rgba(208, 208, 208, 1) 100%
+  );
   padding: 30px;
   border-radius: 25px;
 }
@@ -109,16 +117,16 @@ img {
   height: 311px;
 }
 
-.drafted-card{
-  position:relative;
+.drafted-card {
+  position: relative;
   margin: 5px;
 }
 
 .drafted-card:hover {
   outline: none;
-    border-color: #9ecaed;
-    border-radius: 25px;
-    box-shadow: 0 0 35px #9ecaed;
+  border-color: #9ecaed;
+  border-radius: 25px;
+  box-shadow: 0 0 35px #9ecaed;
 }
 
 .drafted-card img {
@@ -144,7 +152,7 @@ img {
   border-radius: 25px;
 }
 
-.drafted-card-button{
+.drafted-card-button {
   position: absolute;
   z-index: 2;
   top: 44px;
@@ -152,9 +160,8 @@ img {
   left: 59px;
 }
 
-.drafted-card:hover .drafted-card-button{ 
-	display:block;
-  
+.drafted-card:hover .drafted-card-button {
+  display: block;
 }
 
 .header {
@@ -167,12 +174,12 @@ img {
 }
 
 .navLinks {
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    align-items: center;
-    margin: 10px;
-    text-decoration: none;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  align-items: center;
+  margin: 10px;
+  text-decoration: none;
 }
 
 .Link {
@@ -180,14 +187,14 @@ img {
 }
 
 .logo {
-    width: 125px;
-    height: 60px;
-    margin-left: 15px;
-    margin-top: 15px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    color: white;
+  width: 125px;
+  height: 60px;
+  margin-left: 15px;
+  margin-top: 15px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: white;
 }
 
 .home-page {
@@ -199,7 +206,12 @@ img {
 }
 
 .login-form {
-  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8239670868347339) 100%,
+    rgba(159, 159, 159, 0.5018382352941176) 100%,
+    rgba(208, 208, 208, 1) 100%
+  );
   padding: 30px;
   border-radius: 25px;
   color: white;
@@ -228,7 +240,12 @@ img {
 }
 
 .deck-container {
-  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8239670868347339) 100%,
+    rgba(159, 159, 159, 0.5018382352941176) 100%,
+    rgba(208, 208, 208, 1) 100%
+  );
   padding: 30px;
   border-radius: 25px;
   color: white;
@@ -239,7 +256,12 @@ img {
 }
 
 .deck-creation {
-  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8239670868347339) 100%,
+    rgba(159, 159, 159, 0.5018382352941176) 100%,
+    rgba(208, 208, 208, 1) 100%
+  );
   padding: 30px;
   border-radius: 25px;
   color: white;
@@ -262,7 +284,12 @@ img {
 }
 
 .edit-deck {
-  background: linear-gradient(0deg, rgba(0,0,0,0.8239670868347339) 100%, rgba(159,159,159,0.5018382352941176) 100%, rgba(208,208,208,1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8239670868347339) 100%,
+    rgba(159, 159, 159, 0.5018382352941176) 100%,
+    rgba(208, 208, 208, 1) 100%
+  );
   padding: 30px;
   border-radius: 25px;
   color: white;
