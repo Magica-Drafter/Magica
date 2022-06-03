@@ -14,14 +14,18 @@ export default function MeetTheMakers() {
     In World of Warcraft, his Fury Warrior is dead last on the charts every pull. Despite actively raiding every tier since Gul&apos;dan, he has not a single Cutting Edge.<br/>
     He hit legend in Hearthstone once.<br/><br/>
     Favorite MTG Set: Dominaria</p>
+          <a href='https://github.com/ThomHarding'><img className='gitLogo' src ='./gitlogo.PNG' /> </a>
+          <a href='https://www.linkedin.com/in/thomas-s-harding/'><img className='linkedinLogo' src ='./linkedin.png' /> </a>
         </div>
         <div className='about-section'>
           <img className='aboutImg' src='./ianCard.png'/>
           <p>Ian is a  Software Developer based in Beaverton, OR.<br/>
     Coming from a background of security related work and private development, he is moving into a professional experience looking to develop new skills.<br/>
     Most of his time outside of work is spent either metalworking, fixing 3D printers, or drawing.<br/><br/>
-    Favorite MTG Set: Onslaught
+    Favorite MTG Set: Return to Ravnica
           </p>
+          <a href='https://github.com/IACheifetz'> <img className='gitLogo' src ='./gitlogo.PNG' /> </a>
+          <a href='https://www.linkedin.com/in/iancheifetz/'> <img className='linkedinLogo' src ='./linkedin.png' /> </a>
         </div>
         <div className='about-section'>
           <img className='aboutImg' src='./haileyCard.png'/>
@@ -29,6 +33,8 @@ export default function MeetTheMakers() {
     With a background in customer service, she brings a people-first approach to the coding process.<br/>
     In her free time, she loves to frolic in the sun, identify wildflowers, and read the stars.<br/><br/>
     Favorite MTG Set: Alchemy</p>
+          <a href='https://github.com/hdsteineke'> <img className='gitLogo' src ='./gitlogo.PNG' /> </a>
+          <a href='https://www.linkedin.com/in/haileysteineke/'> <img className='linkedinLogo' src ='./linkedin.png' /> </a>
         </div>
         <div className='about-section'>
           <img className='aboutImg' src='./codyCard.png'/>
@@ -36,6 +42,9 @@ export default function MeetTheMakers() {
     Cody enjoys using his skills to solve problems in innovative ways.<br/>
     When he is not coding, you can find him spending time with family, cooking, hiking, and playing video games.<br/><br/>
     Favorite MTG Set: Streets of New Capenna</p>
+          <a href='https://github.com/Cody-Wise'> <img className='gitLogo' src ='./gitlogo.PNG' /> </a> 
+          <a href='https://www.linkedin.com/in/codyawise/
+'> <img className='linkedinLogo' src ='./linkedin.png' /> </a>
         </div>
       </div>
     </div>
