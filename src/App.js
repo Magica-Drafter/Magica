@@ -1,3 +1,5 @@
+/* Incredibly clean code for a first big react app. I have very little to say here--you made all the decisions I would have made, aside from a few very minor code style issues. Your code is broken into a super-maintainable bento-box, with goldilocks components that are neither too big nor too small--just right! If you keep up all the good habits you demonstrate in this app, you will be very popular every team you work on in your career. Great work! */
+
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import AuthPage from './AuthPage';
@@ -16,6 +18,7 @@ function App() {
   const [deleteCard, setDeleteCard] = useState();
 
   useEffect(() => {
+    // good idea, popping the user in state from the get go if there is one
     const user = getUser();
     setCurrentUser(user);
   }, []);
@@ -26,11 +29,11 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            {currentUser ? (
-              <Redirect to="/create-deck" />
-            ) : (
-              <AuthPage setCurrentUser={setCurrentUser} />
-            )}
+            {/* i won't correct it throughout the app, but i personally perfect no parens around JSX in terneries. Just a style thing for me, others may disagree. */}
+            {currentUser 
+             ? <Redirect to="/create-deck" />
+             : <AuthPage setCurrentUser={setCurrentUser} />
+            }
           </Route>
           <Route exact path="/create-deck">
             {currentUser ? <CreateDeck /> : <Redirect to="/" />}

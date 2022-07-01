@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Image from './images/magic-card-back.png';
+// personally prefer this to be lowercase
+import image from './images/magic-card-back.png';
 
 export default function Deck({ deck_name, id }) {
   return (
@@ -8,7 +9,7 @@ export default function Deck({ deck_name, id }) {
     <Link to={`/deck/${id}`}>
       <div className="deck">
         <h3>{deck_name}</h3>
-        <img src={Image} />
+        <img src={image} />
       </div>
     </Link>
   );

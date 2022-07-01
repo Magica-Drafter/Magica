@@ -7,6 +7,7 @@ export default function DraftedCard({ imageUrl, id, setDeleteCard }) {
     setDeleteCard(deletedCard);
   }
 
+  // great work breaking these pieces down into small components. this good habit really pays off once your project grows past a certain size
   return (
     <div className="drafted-card">
       <img src={imageUrl} />

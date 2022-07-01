@@ -53,14 +53,13 @@ export default function CreateDeck() {
         <h1>Your Current Decks</h1>
         <p> Click to view or edit a specific deck.</p>
         <div className="deck-list">
-          {isLoading ? (
-            <LoadingSpinner />
-          ) : (
-            // If loading show loading spinner, otherwise map over user decks for display.
-            userDecks.map(({ deck_name, id }) => (
-              <Deck key={deck_name + id} deck_name={deck_name} id={id} />
-            ))
-          )}
+          {isLoading 
+            ? <LoadingSpinner /> 
+              // If loading show loading spinner, otherwise map over user decks for display.
+            : userDecks.map(({ deck_name, id }) => (
+                <Deck key={deck_name + id} deck_name={deck_name} id={id} />
+              ))
+            }
         </div>
       </div>
     </>

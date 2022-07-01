@@ -7,11 +7,24 @@ const headers = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
 };
 
-exports.handler = async (event) => {
+exports.handler = async ({ 
+  // we can destructure from the argument like so
+  queryStringParameters: { 
+      types, 
+      setName,
+      colorIdentity,
+     }
+    }) => {
   try {
-    console.log(event.queryStringParameters); //eslint-disable-line
+    // as long as the newlines don't break the API, i'd prefer to see the key/vals on separate lines for readability/maintainability
     const response = await fetch(
-      `https://api.magicthegathering.io/v1/cards?pageSize=15&contains=imageUrl&types=${event.queryStringParameters.types}&setName=${event.queryStringParameters.setName}&colorIdentity=${event.queryStringParameters.colorIdentity}&random=true`
+      `https://api.magicthegathering.io/v1/cards?
+        pageSize=15
+        &contains=imageUrl 
+        &types=${types}
+        &setName=${setName}
+        &colorIdentity=${colorIdentity}
+        &random=true`
     );
     const data = await response.json();
     const json = JSON.stringify(data);

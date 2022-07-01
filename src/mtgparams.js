@@ -1,3 +1,4 @@
+// nice decision to put your data into its own file so it doesn't pollute your components
 export const types = [
   'Artifact',
   'Conspiracy',

@@ -42,7 +42,7 @@ export default function CardList({
           ))}
         </div>
         {/* We don't need to show the drafted cards if there aren't any of them */}
-        {drafted.length > 0 ? (
+        {drafted.length > 0 && 
           <div>
             <h1>{deckName} Draft</h1>
             <div className="draft-list">
@@ -58,7 +58,7 @@ export default function CardList({
               ))}
             </div>
           </div>
-        ) : null}
+        }
       </div>
     </span>
   );
