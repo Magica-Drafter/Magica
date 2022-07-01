@@ -57,6 +57,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
                 <option key="green" value="G">
                   Green
                 </option>
+                {/* i was about to say you could probably make an array of strings to map over and create these options, but then i remembered that the U of Blue ruins the scheme, since we can't just depend on the first letter */}
                 <option key="blue" value="U">
                   Blue
                 </option>
@@ -91,6 +92,7 @@ export default function DraftPage({ deleteCard, setDeleteCard }) {
           <select onChange={(e) => setSet(e.target.value)}>
             <option></option>
             {sets.map((item) => (
+              // i get nervous with keys that have no index or id attached to them, in case some other dev one day maps over an array with the same data on the same page
               <option key={item} value={`${item}`}>
                 {item}
               </option>

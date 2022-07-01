@@ -6,6 +6,7 @@ export default function Card({ name, imageUrl, setClick, currentDeck, handleSear
   async function handleDraftClick() {
     // On click of a card, add to draft pool and rerender another search fetch
     handleSelectCard();
+    // impressive prop-drilling here, since this callback has to travel through 3 components to get here
     handleSearchClick();
   }
 

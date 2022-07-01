@@ -60,12 +60,12 @@ export default function Deck({ deleteCard, setDeleteCard }) {
       <h1> {deckName} </h1>
 
       <button onClick={handleRename}>Rename Deck </button>
-      {showButton ? (
+      {showButton && (
         <form onSubmit={handleRenameSubmit}>
           <input value={editDeckName} onChange={(e) => setEditDeckName(e.target.value)} />
           <button> Submit</button>
         </form>
-      ) : null}
+      )}
 
       <button onClick={handleRedraftDeck}>Redraft Deck</button>
       <button onClick={handleDeleteDeck}>Delete Deck</button>
